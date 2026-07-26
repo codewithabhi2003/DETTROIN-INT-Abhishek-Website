@@ -18,8 +18,10 @@ export default function Navbar() {
           boxShadow: isScrolled ? 'var(--shadow-1)' : 'none',
         }}
       >
-        <div className="section-container flex items-center justify-between py-4">
-          <div className="flex items-center gap-4">
+        <div className="section-container flex items-center justify-between py-2 md:py-4">
+
+          {/* ── Left: hamburger + logo ── */}
+          <div className="flex items-center gap-5 md:gap-7">
             <button
               type="button"
               onClick={toggleMobileMenu}
@@ -27,9 +29,14 @@ export default function Navbar() {
               aria-controls="site-nav-overlay"
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               className="flex items-center justify-center rounded-md shrink-0"
-              style={{ backgroundColor: 'var(--color-maroon)', width: 44, height: 44 }}
+              style={{
+                backgroundColor: 'var(--color-maroon)',
+                /* 36×36 on mobile, 44×44 on md+ */
+                width:  'clamp(36px, 8vw, 44px)',
+                height: 'clamp(36px, 8vw, 44px)',
+              }}
             >
-              <Menu size={20} color="var(--color-white)" aria-hidden="true" />
+              <Menu size={18} color="var(--color-white)" aria-hidden="true" />
             </button>
 
             <Link to="/" className="flex items-center shrink-0" aria-label="Vasant Valley School — home">
@@ -37,30 +44,39 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-3">
+          {/* ── Right: search + login ── */}
+          <div className="flex items-center gap-1 md:gap-3">
             <button
               type="button"
               onClick={() => setIsSearchOpen((v) => !v)}
               aria-expanded={isSearchOpen}
               aria-label="Search the site"
-              className="p-2"
+              className="p-1.5 md:p-2"
               style={{ color: 'var(--color-maroon)' }}
             >
-              <Search size={20} aria-hidden="true" />
+              <Search size={18} aria-hidden="true" />
             </button>
 
             <Link
               to={isAuthenticated ? '/account' : '/login'}
-              className="btn-primary inline-flex items-center gap-2"
+              className="btn-primary inline-flex items-center gap-1 md:gap-2"
+              style={{
+                /* smaller text + padding on mobile */
+                fontSize:   'clamp(0.7rem, 2.5vw, 0.875rem)',
+                padding:    'clamp(5px, 1.5vw, 8px) clamp(10px, 3vw, 16px)',
+              }}
             >
-              {isAuthenticated ? 'Account' : 'Log in'} <ArrowRight size={14} />
+              {isAuthenticated ? 'Account' : 'Log in'}
+              {/* hide arrow on very small screens to save space */}
+              <ArrowRight size={12} className="hidden sm:block" aria-hidden="true" />
             </Link>
           </div>
         </div>
 
+        {/* ── Search bar ── */}
         {isSearchOpen && (
           <div className="border-t" style={{ borderColor: 'var(--color-border)' }}>
-            <div className="section-container py-4">
+            <div className="section-container py-3 md:py-4">
               <form role="search" onSubmit={(e) => e.preventDefault()} className="max-w-xl mx-auto">
                 <input
                   type="search"
@@ -83,16 +99,21 @@ export default function Navbar() {
 function Logo() {
   return (
     <div className="flex flex-col items-center leading-none shrink-0" aria-hidden="true">
-      {/* Real favicon from public directory – responsive sizing */}
       <img
         src="/favicon.svg"
         alt="Vasant Valley School logo"
-        className="w-10 h-10 md:w-11.5 md:h-11.5"
+        /* 32×32 on mobile, 46×46 on md+ */
+        style={{ width: 'clamp(32px, 7vw, 46px)', height: 'clamp(32px, 7vw, 46px)' }}
         loading="eager"
       />
       <span
-        className="text-micro font-semibold uppercase mt-1"
-        style={{ color: 'var(--color-ink)', letterSpacing: '0.08em' }}
+        className="font-semibold uppercase mt-0.5"
+        style={{
+          color:         'var(--color-ink)',
+          letterSpacing: '0.08em',
+          /* 9px on mobile → 11px on desktop */
+          fontSize:      'clamp(0.5625rem, 1.5vw, 0.6875rem)',
+        }}
       >
         Vasant Valley
       </span>
