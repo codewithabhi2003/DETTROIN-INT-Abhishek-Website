@@ -4,15 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-// __dirname doesn't exist under ES modules (which vite.config.js runs as)
-// — this is the standard replacement.
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
