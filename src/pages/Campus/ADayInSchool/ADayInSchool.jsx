@@ -58,7 +58,7 @@ export default function ADayInSchool() {
         className="relative h-90 md:h-120 lg:h-160 overflow-hidden"
       >
       <img
-  src="https://images.pexels.com/photos/6147369/pexels-photo-6147369.jpeg?auto=compress&cs=tinysrgb&w=1800"
+  src="https://static.vasantvalley.org/wp-content/uploads/2021/04/a-day-banner.jpg"
   alt="Students studying in the school library"
   className="w-full h-full object-cover"
 />

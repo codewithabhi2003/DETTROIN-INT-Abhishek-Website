@@ -81,7 +81,7 @@ export default function SpecialEducationNeeds() {
 
       <section className="relative h-90 md:h-120 lg:h-160 overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/8613201/pexels-photo-8613201.jpeg?auto=compress&cs=tinysrgb&w=1800"
+          src="https://static.vasantvalley.org/wp-content/uploads/2021/05/image-1.jpg"
           alt="Teacher supporting children in an inclusive classroom"
           className="w-full h-full object-cover"
         />

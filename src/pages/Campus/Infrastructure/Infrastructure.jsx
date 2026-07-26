@@ -54,7 +54,7 @@ export default function Infrastructure() {
 
       <section className="relative h-90 md:h-120 lg:h-160 overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?auto=compress&cs=tinysrgb&w=1800"
+          src="https://static.vasantvalley.org/wp-content/uploads/2021/04/infra-banner-1.jpg"
           alt="Modern school campus"
           className="w-full h-full object-cover"
         />
@@ -134,7 +134,7 @@ export default function Infrastructure() {
 
             <div className="overflow-hidden rounded-(--radius-img) shadow-lg aspect-4/3">
               <img
-                src="https://images.pexels.com/photos/8613317/pexels-photo-8613317.jpeg?auto=compress&cs=tinysrgb&w=1400"
+                src="https://static.vasantvalley.org/wp-content/uploads/2021/04/valley-1.png"
                 alt="Students walking through a modern school campus"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
