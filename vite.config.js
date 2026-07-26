@@ -19,10 +19,20 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          motion: ['motion'],
-          icons: ['lucide-react'],
+        // This Vite version (Rolldown-based) requires manualChunks to be
+        // a function — the older object-map form no longer works.
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return undefined
+          if (
+            id.includes(`${path.sep}react-dom${path.sep}`) ||
+            id.includes(`${path.sep}react${path.sep}`) ||
+            id.includes('react-router-dom')
+          ) {
+            return 'vendor'
+          }
+          if (id.includes('motion')) return 'motion'
+          if (id.includes('lucide-react')) return 'icons'
+          return undefined
         },
       },
     },
