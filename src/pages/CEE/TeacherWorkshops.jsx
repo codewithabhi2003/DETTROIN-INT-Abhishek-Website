@@ -1,5 +1,5 @@
 import { BookOpen, HeartHandshake, Presentation, Users } from 'lucide-react'
-import TeacherWorkshopsHero from './TeacherWorkshopshero'
+import TeacherWorkshopsHero from './TeacherWorkshopsHero'
  
 const focusAreas = [
   { id: 'academics', icon: BookOpen, label: 'Academics' },
