@@ -7,7 +7,7 @@ export default function ProgrammesHero() {
       {/* Hero Image */}
       <div className="relative h-90 md:h-120 lg:h-160 w-full overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/8471709/pexels-photo-8471709.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://static.vasantvalley.org/wp-content/uploads/2021/04/inter.jpg"
           alt="Students participating in an intra-school activity"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"

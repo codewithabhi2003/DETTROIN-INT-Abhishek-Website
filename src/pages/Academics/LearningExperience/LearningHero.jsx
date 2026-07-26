@@ -4,7 +4,7 @@ export default function LearningHero() {
       {/* Hero Image */}
       <div className="relative h-90 md:h-120 lg:h-160 overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://static.vasantvalley.org/wp-content/uploads/2021/04/learning-banner-1.jpg"
           alt="Students learning together in a school environment"
           className="w-full h-full object-cover"
           loading="lazy"

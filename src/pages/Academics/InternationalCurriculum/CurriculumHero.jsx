@@ -4,7 +4,7 @@ export default function CurriculumHero() {
       {/* Hero Image */}
       <div className="relative h-[50vh] min-h-90 md:h-[65vh] lg:h-[75vh] w-full overflow-hidden">
        <img
-  src="https://images.pexels.com/photos/8471984/pexels-photo-8471984.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  src="https://static.vasantvalley.org/wp-content/uploads/2022/11/18105957/igcse_header18112022.jpg"
   alt="Students in a modern international school"
   className="absolute inset-0 w-full h-full object-cover object-center"
   loading="eager"

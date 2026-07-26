@@ -4,7 +4,7 @@ export default function InterSchoolHero() {
       {/* Hero Image */}
       <div className="relative h-[50vh] min-h-90 md:h-[65vh] lg:h-[75vh] overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/8613307/pexels-photo-8613307.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://static.vasantvalley.org/wp-content/uploads/2021/04/intra-new.jpg"
           alt="Students participating in an inter-school programme"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
