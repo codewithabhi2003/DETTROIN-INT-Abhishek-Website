@@ -1,0 +1,59 @@
+name: CI
+
+# Runs on every push and every pull request against main.
+# ubuntu-latest is a case-sensitive Linux filesystem — the same as
+# Vercel's build environment — so any import that only "works" because
+# your local machine (Windows/Mac) ignores filename casing will fail
+# HERE, in a couple of minutes, instead of failing on Vercel after you
+# think you've already fixed it.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Lint & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies (exact, from package-lock.json)
+        run: npm ci
+
+      # Remove this step if package.json has no "lint" script yet —
+      # or add one: "lint": "eslint ."
+      - name: Lint
+        run: npm run lint
+
+      - name: Build (this is the step that would fail on Vercel too)
+        run: npm run build
+
+      # Optional but recommended: catches a specific class of bug —
+      # an import path whose casing doesn't exactly match a file that
+      # exists on disk, even in places Vite's resolver might paper over.
+      - name: Case-sensitivity sanity check
+        run: |
+          echo "Checking for import paths that don't match on-disk casing..."
+          MISMATCHES=0
+          while IFS= read -r line; do
+            file=$(echo "$line" | cut -d: -f1)
+            import_path=$(echo "$line" | grep -oP "(?<=from ['\"])@/[^'\"]+")
+            [ -z "$import_path" ] && continue
+            resolved="src/${import_path#@/}"
+            # Try exact match, then common extensions
+            if [ ! -e "$resolved" ] && [ ! -e "$resolved.jsx" ] && [ ! -e "$resolved.js" ] && [ ! -e "$resolved/index.js" ] && [ ! -e "$resolved/index.jsx" ]; then
+              echo "::warning file=$file::Import '$import_path' does not resolve to an on-disk path — check casing."
+              MISMATCHES=$((MISMATCHES+1))
+            fi
+          done < <(grep -rnE "from ['\"]@/" src --include="*.jsx" --include="*.js")
+          echo "Found $MISMATCHES potential mismatch(es) (warnings only, does not fail the build)."
