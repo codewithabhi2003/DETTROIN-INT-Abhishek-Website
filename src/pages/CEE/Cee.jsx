@@ -8,7 +8,7 @@ import {
   Lightbulb,
   MonitorPlay,
 } from 'lucide-react'
-import CeeHero from './Ceehero'
+import CeeHero from "./CeeHero";
 import TeacherWorkshops from './TeacherWorkshops'
 
 const quickLinks = [
