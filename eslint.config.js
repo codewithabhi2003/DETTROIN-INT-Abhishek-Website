@@ -5,6 +5,11 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 import globals from 'globals'
 
 export default [
+  // Global ignores — must be its own object with ONLY an "ignores" key.
+  // Without this, ESLint lints your built output (dist/) as if it were
+  // your source code, which is where those 100+ "errors" came from.
+  { ignores: ['dist', 'node_modules', 'build'] },
+
   js.configs.recommended,
   {
     files: ['**/*.{js,jsx}'],
