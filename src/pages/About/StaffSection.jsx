@@ -10,7 +10,7 @@ export default function StaffSection() {
         {/* Staff image – responsive, full-width */}
         <div className="mt-8 rounded-(--radius-img)] overflow-hidden shadow-lg">
   <img
-    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1400"
+    src="https://static.vasantvalley.org/wp-content/uploads/2021/04/about-image.jpg"
     alt="Teachers collaborating during a staff meeting"
     className="w-full h-auto md:max-h-125 object-cover transition-transform duration-500 hover:scale-105"
     loading="lazy"

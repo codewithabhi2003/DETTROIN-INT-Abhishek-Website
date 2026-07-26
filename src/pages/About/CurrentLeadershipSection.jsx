@@ -4,7 +4,7 @@ const principal = {
   name: 'Sharmila Bakshi',
   role: 'Principal',
   image:
-    'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400',
+    'https://static.vasantvalley.org/wp-content/uploads/2021/06/ranu.jpg',
   imageAlt: 'Portrait of Sharmila Bakshi',
 }
 
@@ -13,21 +13,21 @@ const team = [
     name: 'Vijay Trivedi',
     role: 'Head of Senior School',
     image:
-      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
+      'https://static.vasantvalley.org/wp-content/uploads/2025/04/02175614/vijay_trivedi_2-scaled.jpeg',
     imageAlt: 'Portrait of Vijay Trivedi',
   },
   {
     name: 'Mona Datta',
     role: 'Head of Junior School',
     image:
-      'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400',
+      'https://static.vasantvalley.org/wp-content/uploads/2021/04/mona-dutta.jpg',
     imageAlt: 'Portrait of Mona Datta',
   },
   {
     name: 'A. P. John',
     role: 'Administrative Head',
     image:
-      'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+      'https://static.vasantvalley.org/wp-content/uploads/2021/04/john.jpg',
     imageAlt: 'Portrait of A. P. John',
   },
 ]

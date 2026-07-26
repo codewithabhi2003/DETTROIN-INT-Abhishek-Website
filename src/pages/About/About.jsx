@@ -19,7 +19,7 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-105 md:h-[75vh] overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/8613307/pexels-photo-8613307.jpeg?auto=compress&cs=tinysrgb&w=1800"
+          src="https://static.vasantvalley.org/wp-content/uploads/2026/07/25095946/synapse_2026_6.jpeg"
           alt="Students and teachers on the Vasant Valley School campus"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"

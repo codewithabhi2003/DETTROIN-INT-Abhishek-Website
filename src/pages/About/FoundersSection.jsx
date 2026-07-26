@@ -19,14 +19,14 @@ export default function FoundersSection() {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 mt-10">
   <PersonCard
     name="Mrs. Rekha Purie"
-    image="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=500"
+    image="https://static.vasantvalley.org/wp-content/uploads/2021/04/14104110/Rekha-Purie-1.jpg"
     imageAlt="Portrait of Mrs. Rekha Purie"
     size="lg"
   />
 
   <PersonCard
     name="Mr. Aroon Purie"
-    image="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=500"
+    image="https://static.vasantvalley.org/wp-content/uploads/2021/04/14104201/Aroon-Purie-2.jpg"
     imageAlt="Portrait of Mr. Aroon Purie"
     size="lg"
   />
