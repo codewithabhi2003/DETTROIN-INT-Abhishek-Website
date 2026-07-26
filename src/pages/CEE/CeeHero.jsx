@@ -14,7 +14,7 @@ export default function CeeHero() {
 
       <section className="relative h-90 md:h-120 lg:h-160 overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/8197543/pexels-photo-8197543.jpeg?auto=compress&cs=tinysrgb&w=1800"
+          src="https://www.vasantvalley.org/wp-content/uploads/2026/01/image-vv-1.jpg"
           alt="Educators participating in a professional development workshop"
           className="w-full h-full object-cover"
         />

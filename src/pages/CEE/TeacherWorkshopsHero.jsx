@@ -2,7 +2,7 @@ export default function TeacherWorkshopsHero() {
   return (
     <section className="relative h-90 md:h-120 lg:h-160 overflow-hidden rounded-(--radius-img)">
       <img
-        src="https://images.pexels.com/photos/8199562/pexels-photo-8199562.jpeg?auto=compress&cs=tinysrgb&w=1800"
+        src="https://www.vasantvalley.org/wp-content/uploads/2026/01/image-vv-4-1.jpg"
         alt="Teachers participating in a professional development workshop"
         className="w-full h-full object-cover"
       />
