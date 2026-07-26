@@ -1,31 +1,35 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
-import { PLACEHOLDER_PATTERN } from '@/constants/imagePlaceholder'
 
 const slides = [
   {
+    eyebrow: 'Science Fest',
+    title: 'Synapse 2026',
+    body: 'Students showcase innovation, teamwork and scientific thinking through exciting challenges and collaborative events.',
+    cta: { label: 'View gallery', to: '/campus/gallery' },
+    image:
+      'https://static.vasantvalley.org/wp-content/uploads/2026/07/25095948/synapse_2026_7.jpeg',
+    imageAlt: 'Students participating in Synapse 2026',
+  },
+  {
+    eyebrow: 'Innovation & Discovery',
+    title: 'Learning Beyond the Classroom',
+    body: 'Hands-on experiences encourage curiosity, creativity and problem-solving while students learn through exploration.',
+    cta: { label: 'Explore student life', to: '/student-life' },
+    image:
+      'https://static.vasantvalley.org/wp-content/uploads/2026/07/25095940/synapse_2026_4.jpeg',
+    imageAlt: 'Students participating in Synapse activities',
+  },
+  {
     eyebrow: 'Model United Nations',
     title: '23rd Laissez Faire',
-    body: 'Delegates from over 40 schools convene at Vasant Valley for three days of debate, diplomacy and dissent.',
+    body: 'Delegates from schools across the country gather to debate, negotiate and develop leadership through meaningful dialogue.',
     cta: { label: 'View gallery', to: '/campus/gallery' },
-    imageAlt: 'Delegates seated at committee desks during Laissez Faire',
-  },
-  {
-    eyebrow: 'Admissions 2027–28',
-    title: 'A place is waiting',
-    body: 'Applications for Pre-School, Class I and Class XI open shortly. Read the process before you begin.',
-    cta: { label: 'Start admissions', to: '/admissions' },
-    imageAlt: 'Students walking across the Vasant Valley campus',
-  },
-  {
-    eyebrow: 'Since 1990',
-    title: '"Excellence in Deed"',
-    body: 'Thirty-five years of individualised attention, process-focused learning, and a campus built around the child.',
-    cta: { label: 'Our story', to: '/about' },
-    imageAlt: 'Archival photograph of the school\u2019s founding years',
+    image:
+      'https://static.vasantvalley.org/wp-content/uploads/2026/07/20114506/laissez_faire_2026_7-1.jpeg',
+    imageAlt: 'Students participating in Laissez Faire 2026',
   },
 ]
-
 export default function Hero() {
   const [active, setActive] = useState(0)
   const timerRef = useRef(null)
@@ -34,11 +38,13 @@ export default function Hero() {
     timerRef.current = setInterval(() => {
       setActive((i) => (i + 1) % slides.length)
     }, 6000)
-    return () => clearInterval(timerRef.current)
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+    }
   }, [])
 
   const goTo = (i) => {
-    clearInterval(timerRef.current)
+    if (timerRef.current) clearInterval(timerRef.current)
     setActive(i)
   }
 
@@ -50,22 +56,17 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{ backgroundColor: 'var(--color-ink)' }}
     >
+      {/* Preserving your original responsive height classes */}
       <div className="relative h-130 md:h-160 w-full">
-        {/* IMAGE SLOT — replace with real photography per slide (1920×1080 min) */}
-        <div
-          className="absolute inset-0"
-          style={PLACEHOLDER_PATTERN}
-          role="img"
-          aria-label={slide.imageAlt}
-        >
-          <div className="absolute inset-0 flex items-start justify-end p-4">
-            <span className="text-micro font-medium tracking-wide" style={{ color: 'var(--color-ink-40)' }}>
-              IMAGE — {slide.imageAlt}
-            </span>
-          </div>
-        </div>
+        {/* Real photography – scales responsively with object-cover */}
+        <img
+          src={slide.image}
+          alt={slide.imageAlt}
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="lazy"
+        />
 
-        {/* Gradient scrim so text stays legible over any photo */}
+        {/* Gradient scrim */}
         <div
           className="absolute inset-0"
           style={{
@@ -83,10 +84,13 @@ export default function Hero() {
             {slide.title}
           </h1>
           <span className="gold-rule" />
-          <p className="body-l max-w-lg mt-5" style={{ color: 'var(--color-white)', opacity: 0.85 }}>
+          <p
+            className="body-l max-w-lg mt-5"
+            style={{ color: 'var(--color-white)', opacity: 0.85 }}
+          >
             {slide.body}
           </p>
-          <a href={slide.cta.to} className="btn-primary w-fit mt-8">
+          <a href={slide.cta.to} className="btn-primary w-fit mt-8 inline-flex items-center gap-2">
             {slide.cta.label} <ArrowRight size={16} />
           </a>
         </div>
@@ -99,12 +103,13 @@ export default function Hero() {
             key={s.title}
             onClick={() => goTo(i)}
             aria-label={`Show slide ${i + 1}: ${s.title}`}
-            aria-current={i === active}
+            aria-current={i === active ? 'true' : undefined}
             className="rounded-full transition-all duration-300"
             style={{
               width: i === active ? 22 : 8,
               height: 8,
-              backgroundColor: i === active ? 'var(--color-gold)' : 'rgba(255,255,255,0.4)',
+              backgroundColor:
+                i === active ? 'var(--color-gold)' : 'rgba(255,255,255,0.4)',
             }}
           />
         ))}

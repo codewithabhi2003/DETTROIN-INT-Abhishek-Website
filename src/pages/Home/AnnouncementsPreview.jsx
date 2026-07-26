@@ -1,6 +1,5 @@
 import { ArrowRight } from 'lucide-react'
 
-// TODO: swap for services/announcementsService.js once data/announcements.json exists
 const announcements = [
   {
     title: 'Class 12 CBSE Marksheet',
@@ -21,15 +20,27 @@ const announcements = [
 
 export default function AnnouncementsPreview() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'var(--color-maroon)' }}>
-      <div className="section-container">
+    <section
+      className="relative section-padding"
+      style={{
+        backgroundColor: 'var(--color-maroon)',
+        backgroundImage:
+          'url(https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Dark overlay to maintain maroon depth and ensure text legibility */}
+      <div className="absolute inset-0 bg-ink/70" />
+
+      <div className="relative z-10 section-container">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
           <h2 className="heading-1" style={{ color: 'var(--color-white)' }}>
             Announcements
           </h2>
           <a
             href="/news/announcements"
-            className="btn-ghost"
+            className="btn-ghost inline-flex items-center gap-2"
             style={{ color: 'var(--color-gold-light)' }}
           >
             View all <ArrowRight size={14} />
@@ -40,13 +51,21 @@ export default function AnnouncementsPreview() {
           {announcements.map((a) => (
             <article
               key={a.title}
-              className="rounded-(--radius-card) p-6"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)' }}
+              className="rounded-(--radius-card) p-6 transition-transform duration-300 hover:scale-[1.02]"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.14)',
+              }}
             >
               <span className="badge badge-gold">{a.date}</span>
               <h3
                 className="mt-4"
-                style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--color-white)' }}
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 22,
+                  fontWeight: 600,
+                  color: 'var(--color-white)',
+                }}
               >
                 {a.title}
               </h3>

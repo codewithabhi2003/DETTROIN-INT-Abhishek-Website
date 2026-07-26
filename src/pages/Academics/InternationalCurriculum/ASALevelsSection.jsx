@@ -32,79 +32,93 @@ const notes = [
 export default function ASALevelsSection() {
   return (
     <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-      <div className="section-container grid md:grid-cols-2 gap-12">
-        <div>
-          <h2 className="heading-1">Cambridge AS and A Levels</h2>
-          <span className="gold-rule" />
-          <div className="body-m space-y-4 mt-5" style={{ color: 'var(--color-ink)' }}>
-            <p>
-              Cambridge International A Level is typically a two-year
-              course, and Cambridge International AS Level is typically one
-              year. Universities worldwide value and recognise Cambridge
-              International AS &amp; A Level qualifications since it develops
-              learners' knowledge, understanding and skills in:
-            </p>
-          </div>
-          <ul className="mt-4 space-y-2 list-disc pl-5">
-            {skills.map((skill) => (
-              <li key={skill} className="body-m" style={{ color: 'var(--color-ink)' }}>{skill}</li>
-            ))}
-          </ul>
-
-          <h3 className="heading-2 mt-8">Assessment by Cambridge</h3>
-          <span className="gold-rule" />
-          <div className="body-m space-y-4 mt-5" style={{ color: 'var(--color-ink)' }}>
-            <p>
-              At Vasant Valley School, assessment options to gain Cambridge
-              International AS &amp; A Level qualifications are as follows:
-            </p>
-            <p>
-              <span className="font-medium">Take the Cambridge International AS Level only:</span>{' '}
-              the syllabus content is half a Cambridge International A
-              Level.
-            </p>
-            <p>
-              <span className="font-medium">Staged Assessment Route:</span> students take the
-              Cambridge International AS Level in one examination series*
-              and complete the final Cambridge International A Level** in a
-              subsequent series. AS Level marks can be carried forward to a
-              full A Level twice within a 13 month period.
-            </p>
-            <p className="text-micro" style={{ color: 'var(--color-ink-40)' }}>
-              *The Advanced Subsidiary Level (AS Level) examinations are
-              administered at the end of Class 11 (except for English
-              Language General Paper). **The Advanced Level (A Level)
-              examinations are administered at the end of Class 12 along
-              with English Language General Paper AS Level.
-            </p>
-          </div>
-          <p className="mt-5">
-            <a
-              href="https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-advanced/cambridge-international-as-and-a-levels/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-small font-medium underline"
-              style={{ color: 'var(--color-gold-dark, var(--color-gold))' }}
-            >
-              Read more about Cambridge AS &amp; A Levels
-            </a>
-          </p>
+      <div className="section-container">
+        {/* Responsive banner image – full width, capped height */}
+        <div className="rounded-(--radius-img) overflow-hidden mb-12">
+          <img
+            src="https://images.unsplash.com/photo-1509062522246-375597bbf1d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            alt="Students engaged in a Cambridge AS and A Level lesson"
+            className="w-full h-48 sm:h-64 md:h-80 object-cover"
+            loading="lazy"
+          />
         </div>
 
-        <div>
-          <h3 className="heading-2">Subjects offered at Vasant Valley School</h3>
-          <span className="gold-rule" />
-          <div className="mt-6">
-            <SubjectTable rows={asLevelSubjects} footnotes={asLevelFootnotes} />
-          </div>
-
-          <div className="rounded-(--radius-img) p-6 mt-8" style={{ backgroundColor: 'var(--color-gold-light)' }}>
-            <p className="text-small font-medium" style={{ color: 'var(--color-ink)' }}>Please note</p>
-            <ul className="mt-3 space-y-3">
-              {notes.map((note) => (
-                <li key={note} className="text-small" style={{ color: 'var(--color-ink)' }}>{note}</li>
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Left column – same as before */}
+          <div>
+            <h2 className="heading-1">Cambridge AS and A Levels</h2>
+            <span className="gold-rule" />
+            <div className="body-m space-y-4 mt-5" style={{ color: 'var(--color-ink)' }}>
+              <p>
+                Cambridge International A Level is typically a two-year
+                course, and Cambridge International AS Level is typically one
+                year. Universities worldwide value and recognise Cambridge
+                International AS &amp; A Level qualifications since it develops
+                learners' knowledge, understanding and skills in:
+              </p>
+            </div>
+            <ul className="mt-4 space-y-2 list-disc pl-5">
+              {skills.map((skill) => (
+                <li key={skill} className="body-m" style={{ color: 'var(--color-ink)' }}>{skill}</li>
               ))}
             </ul>
+
+            <h3 className="heading-2 mt-8">Assessment by Cambridge</h3>
+            <span className="gold-rule" />
+            <div className="body-m space-y-4 mt-5" style={{ color: 'var(--color-ink)' }}>
+              <p>
+                At Vasant Valley School, assessment options to gain Cambridge
+                International AS &amp; A Level qualifications are as follows:
+              </p>
+              <p>
+                <span className="font-medium">Take the Cambridge International AS Level only:</span>{' '}
+                the syllabus content is half a Cambridge International A
+                Level.
+              </p>
+              <p>
+                <span className="font-medium">Staged Assessment Route:</span> students take the
+                Cambridge International AS Level in one examination series*
+                and complete the final Cambridge International A Level** in a
+                subsequent series. AS Level marks can be carried forward to a
+                full A Level twice within a 13 month period.
+              </p>
+              <p className="text-micro" style={{ color: 'var(--color-ink-40)' }}>
+                *The Advanced Subsidiary Level (AS Level) examinations are
+                administered at the end of Class 11 (except for English
+                Language General Paper). **The Advanced Level (A Level)
+                examinations are administered at the end of Class 12 along
+                with English Language General Paper AS Level.
+              </p>
+            </div>
+            <p className="mt-5">
+              <a
+                href="https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-advanced/cambridge-international-as-and-a-levels/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-small font-medium underline"
+                style={{ color: 'var(--color-gold-dark, var(--color-gold))' }}
+              >
+                Read more about Cambridge AS &amp; A Levels
+              </a>
+            </p>
+          </div>
+
+          {/* Right column – same as before */}
+          <div>
+            <h3 className="heading-2">Subjects offered at Vasant Valley School</h3>
+            <span className="gold-rule" />
+            <div className="mt-6">
+              <SubjectTable rows={asLevelSubjects} footnotes={asLevelFootnotes} />
+            </div>
+
+            <div className="rounded-(--radius-img) p-6 mt-8" style={{ backgroundColor: 'var(--color-gold-light)' }}>
+              <p className="text-small font-medium" style={{ color: 'var(--color-ink)' }}>Please note</p>
+              <ul className="mt-3 space-y-3">
+                {notes.map((note) => (
+                  <li key={note} className="text-small" style={{ color: 'var(--color-ink)' }}>{note}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

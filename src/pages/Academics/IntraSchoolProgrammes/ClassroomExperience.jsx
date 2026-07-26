@@ -11,38 +11,59 @@ const items = [
     title: 'Art Specialisation',
     body: [
       'Art stimulates cognitive development, innovative thinking and helps our understanding of cultural diversity. Students from Foundation to Class 12 can research and experiment with different media.',
-      'Performing Arts — Students can explore instruments, sing, act and learn movement and dance, guided by a group of full-time specialists. The students put these skills to practice during events within and outside the school, giving them an opportunity to showcase their learning and pursue their passion.',
-      'Visual Arts — Students can explore their creativity and transform their imagination into tangible expressions. Trips to various museums and exhibitions allow children to appreciate cultural diversity.',
+      'Performing Arts — Students can explore instruments, sing, act and learn movement and dance, guided by a group of full-time specialists. Students regularly showcase their learning during school events and external performances.',
+      'Visual Arts — Students explore creativity through a variety of media while museum visits and exhibitions encourage appreciation of artistic and cultural diversity.',
     ],
   },
   {
     id: 'life-skills',
     title: 'Life Skills Programme',
-    body: 'Developing competencies needed to prepare students for life beyond school, here the focus is on problem solving and effective decision-making skills. Speakers from different walks of life are invited to create awareness about career options, handling peer pressure, resilience, understanding and managing emotions and effective communication for students from Class 6 to 12.',
+    body: 'Developing competencies needed for life beyond school, this programme focuses on problem solving, decision-making, resilience, emotional intelligence and communication. Experts from diverse professions regularly interact with students from Classes 6 to 12.',
   },
   {
     id: 'hobbies',
     title: 'Hobbies',
-    body: 'Students are offered opportunities to engage in pursuits that helps them imbibe new skills. These hobbies are both stimulating and fun and give students creative outlets beyond the academic sphere. There are several choices offered as hobbies for students in the Junior School and Senior School. Hobby classes are held once every week.',
+    body: 'Students participate in a wide range of hobby programmes that help them discover new interests, develop practical skills and enjoy creative experiences beyond academics. Hobby classes are conducted once every week.',
   },
   {
     id: 'library-reading',
     title: 'Library & Reading Programme',
-    body: "The Junior and Senior School libraries together have more than 60,000 books and new books are continuously added to the collection. Apart from the regular library lessons included in a student's timetable, children can visit the library during breaks and other lessons. The School's Reading Programme encourages children to read for pleasure and author interactions are planned through the year.",
+    body: "The Junior and Senior School libraries house over 60,000 books, with new additions throughout the year. Beyond regular library periods, students are encouraged to read independently, while author interactions and reading initiatives nurture a lifelong love for books.",
   },
 ]
 
 export default function ClassroomExperience() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'var(--color-gold-light)' }}>
-      <div className="section-container">
-        <h2 className="heading-1">The Classroom Experience</h2>
-        <span className="gold-rule" />
-        <p className="body-m mt-5 max-w-2xl" style={{ color: 'var(--color-ink)' }}>
-          The Classroom Experience takes learning well beyond the academic
-          curriculum, making lifelong learners of our students.
-        </p>
-        <ProgrammeAccordion items={items} />
+    <section
+      className="section-padding"
+      style={{ backgroundColor: 'var(--color-gold-light)' }}
+    >
+      <div className="section-container max-w-6xl mx-auto">
+        {/* Heading */}
+        <div className="max-w-3xl">
+          <h2
+            className="heading-1"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            The Classroom Experience
+          </h2>
+
+          <span className="gold-rule mt-4" />
+
+          <p
+            className="body-m mt-6"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            Learning at Vasant Valley School extends well beyond textbooks.
+            Students engage in interdisciplinary experiences that encourage
+            creativity, collaboration, critical thinking and lifelong learning.
+          </p>
+        </div>
+
+        {/* Accordion */}
+        <div className="mt-10 md:mt-12">
+          <ProgrammeAccordion items={items} />
+        </div>
       </div>
     </section>
   )

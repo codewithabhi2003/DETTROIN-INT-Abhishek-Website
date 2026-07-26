@@ -1,38 +1,50 @@
-import { PLACEHOLDER_PATTERN } from '@/constants/imagePlaceholder'
+import { Helmet } from 'react-helmet-async'
 
-export default function Ceehero() {
+export default function CeeHero() {
   return (
-    <section aria-label="CEE hero" className="relative">
-      <div
-        className="relative h-80 md:h-120 w-full"
-        style={PLACEHOLDER_PATTERN}
-        role="img"
-        aria-label="Educators collaborating in a CEE@VVS workshop session"
-      >
-        <div className="absolute inset-0 flex items-start justify-end p-4">
-          <span
-            className="text-micro font-medium tracking-wide"
-            style={{ color: 'var(--color-ink-40)' }}
-          >
-            IMAGE — CEE workshop session
-          </span>
+    <>
+      <Helmet>
+        <title>CEE@VVS | Vasant Valley School</title>
+
+        <meta
+          name="description"
+          content="The Centre for Excellence in Education at Vasant Valley School empowers educators through professional development, leadership programmes, research and innovation."
+        />
+      </Helmet>
+
+      <section className="relative h-90 md:h-120 lg:h-160 overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/8197543/pexels-photo-8197543.jpeg?auto=compress&cs=tinysrgb&w=1800"
+          alt="Educators participating in a professional development workshop"
+          className="w-full h-full object-cover"
+        />
+
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="max-w-4xl px-6 text-center">
+
+            <span className="badge badge-gold mx-auto mb-6">
+              CEE@VVS
+            </span>
+
+            <h1 className="heading-1 text-white">
+              Centre for Excellence
+              <br />
+              in Education
+            </h1>
+
+            <span className="gold-rule mx-auto mt-5" />
+
+            <p className="body-l text-white/90 mt-8 max-w-3xl mx-auto">
+              Empowering educators through research, leadership,
+              innovation and professional learning—building a community
+              where teaching continues to evolve and inspire.
+            </p>
+
+          </div>
         </div>
-      </div>
-      <div className="section-container">
-        <div className="max-w-2xl mx-auto text-center pt-14 pb-10 md:pt-20 md:pb-14">
-          <span className="badge badge-gold w-fit mx-auto mb-4">CEE@VVS</span>
-          <h1 className="heading-1">Centre for Excellence in Education</h1>
-          <span className="gold-rule mx-auto" />
-          <p
-            className="body-m mt-5"
-            style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}
-          >
-            Born out of thirty-six years of running Vasant Valley School, CEE@VVS gives
-            educators the space, stimuli and support to reflect, question and re-imagine
-            their practice.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

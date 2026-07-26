@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet-async'
-import { PLACEHOLDER_PATTERN } from '@/constants/imagePlaceholder'
 import FoundersSection from './FoundersSection'
 import LeadershipHistorySection from './LeadershipHistorySection'
 import CurrentLeadershipSection from './CurrentLeadershipSection'
@@ -17,33 +16,88 @@ export default function About() {
         />
       </Helmet>
 
-      {/* IMAGE SLOT — full staff photo on the sandstone campus steps */}
-      <div
-        className="relative h-70 md:h-100 w-full"
-        style={PLACEHOLDER_PATTERN}
-        role="img"
-        aria-label="The Vasant Valley staff on the campus steps"
-      >
-        <span className="absolute bottom-3 right-4 text-micro" style={{ color: 'var(--color-ink-40)' }}>
-          IMAGE — staff group photo, campus steps
-        </span>
-      </div>
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-105 md:h-[75vh] overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/8613307/pexels-photo-8613307.jpeg?auto=compress&cs=tinysrgb&w=1800"
+          alt="Students and teachers on the Vasant Valley School campus"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
 
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-        <div className="section-container max-w-3xl mx-auto text-center">
-          <h1 className="heading-1">
-            Run by the Education Today Trust, Vasant Valley School is the
-            realisation of Mr. Aroon Purie and Mrs. Rekha Purie's vision of
-            the ideal school experience for children.
-          </h1>
-          <span className="gold-rule mx-auto" />
+        {/* Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.65) 100%)',
+          }}
+        />
+
+        {/* Hero Content */}
+        <div className="relative h-full flex items-end">
+          <div className="section-container w-full pb-12 md:pb-20">
+            <div className="max-w-4xl">
+              <span className="badge badge-gold mb-5">
+                Since 1990
+              </span>
+
+              <h1
+                className="display-xl"
+                style={{ color: 'var(--color-white)' }}
+              >
+                About Vasant Valley School
+              </h1>
+
+              <span className="gold-rule mt-5" />
+
+              <p
+                className="body-l mt-6 max-w-2xl"
+                style={{
+                  color: 'rgba(255,255,255,0.92)',
+                }}
+              >
+                Run by the Education Today Trust, Vasant Valley School is
+                the realisation of Mr. Aroon Purie and Mrs. Rekha Purie's
+                vision of the ideal school experience for children.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Introduction */}
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-white)' }}
+      >
+        <div className="section-container max-w-4xl mx-auto text-center">
+          <p className="heading-2">
+            For over three decades, Vasant Valley School has nurtured
+            curiosity, creativity, compassion and excellence. Every child
+            is encouraged to think independently, act responsibly and
+            contribute meaningfully to society.
+          </p>
+
+          <span className="gold-rule mx-auto mt-6" />
+
+          <p className="body mt-8">
+            The school believes that education extends beyond academic
+            excellence. Through a balanced emphasis on academics, arts,
+            sports, leadership and service, students develop the confidence,
+            values and skills needed to thrive in an ever-changing world.
+          </p>
         </div>
       </section>
 
       <FoundersSection />
+
       <LeadershipHistorySection />
+
       <CurrentLeadershipSection />
+
       <StaffSection />
+
       <AlumniSection />
     </>
   )

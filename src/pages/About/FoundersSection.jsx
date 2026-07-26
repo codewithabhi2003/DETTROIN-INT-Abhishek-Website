@@ -16,10 +16,21 @@ export default function FoundersSection() {
           Mrs. Rekha Purie is the Chairperson of Vasant Valley School.
         </p>
 
-        <div className="flex justify-center gap-16 mt-10">
-          <PersonCard name="Ms. Rekha Purie" imageAlt="Portrait of Ms. Rekha Purie" size="lg" />
-          <PersonCard name="Mr. Aroon Purie" imageAlt="Portrait of Mr. Aroon Purie" size="lg" />
-        </div>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 mt-10">
+  <PersonCard
+    name="Mrs. Rekha Purie"
+    image="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=500"
+    imageAlt="Portrait of Mrs. Rekha Purie"
+    size="lg"
+  />
+
+  <PersonCard
+    name="Mr. Aroon Purie"
+    image="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=500"
+    imageAlt="Portrait of Mr. Aroon Purie"
+    size="lg"
+  />
+</div>
       </div>
     </section>
   )

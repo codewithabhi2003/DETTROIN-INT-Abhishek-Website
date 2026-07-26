@@ -1,22 +1,19 @@
 import { ArrowRight } from 'lucide-react'
-import { OCTAGON_CLIP, PLACEHOLDER_PATTERN } from '@/constants/imagePlaceholder'
-
-const dimensions = [
-  'Cerebral', 'Social', 'Physical', 'Spiritual',
-  'Emotional', 'Environmental', 'Creative', 'Ethical',
-]
 
 const teasers = [
   {
     label: 'Vision',
     to: '/vision-philosophy',
-    imageAlt: 'Students on the sports field podium',
+    image:
+'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1200',
     kicker: '“Excellence in Deed”',
     body: "The school's motto sets the standard for Vasant Valley: individualised attention for each student, a process-focused learning framework, equity of all stakeholders and a commitment to society.",
   },
   {
     label: 'A day in school',
     to: '/campus/a-day-in-school',
+    image:
+'https://images.pexels.com/photos/8926546/pexels-photo-8926546.jpeg?auto=compress&cs=tinysrgb&w=1200',
     imageAlt: 'A visiting dignitary with students on campus',
     kicker: 'Education is preparation for life',
     body: 'Academic and non-academic Learning Experiences are planned around the developmental needs of our students. The entire campus is a classroom, and learning is continuous.',
@@ -28,7 +25,7 @@ export default function AboutPreview() {
     <>
       {/* Mission statement */}
       <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-        <div className="section-container max-w-3xl mx-auto text-center">
+        <div className="section-container max-w-3xl mx-auto text-center px-4 md:px-0">
           <p className="heading-2" style={{ color: 'var(--color-ink)' }}>
             Vasant Valley School encourages students to push the boundaries of
             current understanding and set benchmarks in the field of
@@ -48,25 +45,34 @@ export default function AboutPreview() {
         {teasers.map((t, i) => (
           <div key={t.label} className="section-container section-padding">
             <div className="grid md:grid-cols-2 gap-10 items-center">
+              {/* Real photograph – responsive with object-cover */}
               <div
                 className={`aspect-4/3 rounded-(--radius-img) relative overflow-hidden ${
                   i % 2 === 1 ? 'md:order-2' : ''
                 }`}
-                style={PLACEHOLDER_PATTERN}
-                role="img"
-                aria-label={t.imageAlt}
               >
-                <span className="absolute bottom-3 left-3 text-micro" style={{ color: 'var(--color-ink-40)' }}>
-                  IMAGE — {t.imageAlt}
-                </span>
+                <img
+                  src={t.image}
+                  alt={t.imageAlt}
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
               </div>
+
               <div>
-                <p className="text-small font-semibold tracking-wide uppercase" style={{ color: 'var(--color-maroon)' }}>
+                <p
+                  className="text-small font-semibold tracking-wide uppercase"
+                  style={{ color: 'var(--color-maroon)' }}
+                >
                   {t.kicker}
                 </p>
-                <h2 className="heading-1 mt-2">{t.label === 'Vision' ? '“Excellence in Deed”' : 'Education is preparation for life.'}</h2>
+                <h2 className="heading-1 mt-2">
+                  {t.label === 'Vision'
+                    ? '“Excellence in Deed”'
+                    : 'Education is preparation for life.'}
+                </h2>
                 <p className="body mt-4">{t.body}</p>
-                <a href={t.to} className="btn-ghost mt-6">
+                <a href={t.to} className="btn-ghost mt-6 inline-flex items-center gap-2">
                   {t.label} <ArrowRight size={14} />
                 </a>
               </div>
@@ -77,8 +83,15 @@ export default function AboutPreview() {
 
       {/* Founding history */}
       <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-        <div className="section-container max-w-3xl mx-auto text-center">
-          <p className="body-l" style={{ color: 'var(--color-maroon)', fontFamily: 'var(--font-display)', fontSize: 22 }}>
+        <div className="section-container max-w-3xl mx-auto text-center px-4 md:px-0">
+          <p
+            className="body-l"
+            style={{
+              color: 'var(--color-maroon)',
+              fontFamily: 'var(--font-display)',
+              fontSize: 22,
+            }}
+          >
             Vasant Valley School was established in 1990 by Mr. Aroon Purie
             and Mrs. Rekha Purie as an initiative of the Education Today
             Trust.
@@ -89,7 +102,7 @@ export default function AboutPreview() {
             school spread over eight acres of land in Vasant Kunj, New
             Delhi, India.
           </p>
-          <a href="/about" className="btn-ghost mt-6 mx-auto w-fit">
+          <a href="/about" className="btn-ghost mt-6 mx-auto w-fit inline-flex items-center gap-2">
             About us <ArrowRight size={14} />
           </a>
         </div>
@@ -97,7 +110,7 @@ export default function AboutPreview() {
 
       {/* Infrastructure strip */}
       <section className="section-padding" style={{ backgroundColor: 'var(--color-surface)' }}>
-        <div className="section-container max-w-3xl mx-auto text-center">
+        <div className="section-container max-w-3xl mx-auto text-center px-4 md:px-0">
           <p className="body">
             The School is divided into two wings, with an open amphitheatre
             connecting them. This eight-acre campus has a built-up area of
@@ -109,13 +122,13 @@ export default function AboutPreview() {
             keeping in mind the ideal environment for children, the
             philosophy of the school, and evolving paradigms.
           </p>
-          <a href="/campus/infrastructure" className="btn-ghost mt-6 mx-auto w-fit">
+          <a href="/campus/infrastructure" className="btn-ghost mt-6 mx-auto w-fit inline-flex items-center gap-2">
             Infrastructure <ArrowRight size={14} />
           </a>
         </div>
       </section>
 
-      {/* Learning Experience — signature octagon diagram */}
+      {/* Learning Experience – responsive SVG diagram */}
       <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
         <div className="section-container grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -127,79 +140,118 @@ export default function AboutPreview() {
               compassionate and confident. This fosters a spirit of
               cooperation and mutual respect among students and teachers.
             </p>
-            <a href="/academics/learning-experience" className="btn-ghost mt-6">
+            <a href="/academics/learning-experience" className="btn-ghost mt-6 inline-flex items-center gap-2">
               Learning experience <ArrowRight size={14} />
             </a>
           </div>
 
-          <LearningExperienceDiagram />
+          <div className="w-full max-w-md mx-auto">
+            <LearningExperienceDiagram />
+          </div>
         </div>
       </section>
     </>
   )
 }
 
+/* ── Fully responsive SVG diagram ── */
 function LearningExperienceDiagram() {
-  const size = 380
-  const center = size / 2
-  const ringRadius = size * 0.42
-  const octagonRadius = size * 0.27
+  const dimensions = [
+    'Cerebral', 'Social', 'Physical', 'Spiritual',
+    'Emotional', 'Environmental', 'Creative', 'Ethical',
+  ]
+
+  // Angle calculations
+  const n = dimensions.length
+  const outerR = 140  // ring radius for label placement
+  const innerR = 90   // radius of octagon vertices (outermost points of octagon)
+  // The octagon will have vertices at (innerR * cos(a), innerR * sin(a))
+
+  // Generate points for a regular octagon (starting from top, going clockwise)
+  const octagonPoints = Array.from({ length: n }, (_, i) => {
+    const angle = (i * 2 * Math.PI) / n - Math.PI / 2 // -90° so first point is top
+    const x = innerR * Math.cos(angle)
+    const y = innerR * Math.sin(angle)
+    return `${x},${y}`
+  }).join(' ')
 
   return (
-    <div className="relative mx-auto" style={{ width: size, height: size }} aria-hidden="true">
-      {/* connecting ticks */}
+    <svg
+     viewBox="-250 -250 500 500"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-auto"
+      aria-hidden="true"
+    >
+      {/* Connector lines from octagon vertices to outer labels */}
       {dimensions.map((label, i) => {
-        const angle = (i * 360) / dimensions.length
-        const rad = (angle * Math.PI) / 180
-        const x = center + ringRadius * Math.sin(rad)
-        const y = center - ringRadius * Math.cos(rad)
-        const tickInner = center + (octagonRadius + 6) * Math.sin(rad)
-        const tickInnerY = center - (octagonRadius + 6) * Math.cos(rad)
+        const angle = (i * 2 * Math.PI) / n - Math.PI / 2
+        const xOuter = outerR * Math.cos(angle)
+        const yOuter = outerR * Math.sin(angle)
+        const xInner = innerR * Math.cos(angle)
+        const yInner = innerR * Math.sin(angle)
 
         return (
-          <div key={label}>
-            <svg className="absolute inset-0" width={size} height={size} style={{ pointerEvents: 'none' }}>
-              <line
-                x1={tickInner}
-                y1={tickInnerY}
-                x2={center + (ringRadius - 26) * Math.sin(rad)}
-                y2={center - (ringRadius - 26) * Math.cos(rad)}
-                stroke="var(--color-border)"
-                strokeWidth="1.5"
-              />
-            </svg>
-            <span
-              className="absolute text-small font-semibold whitespace-nowrap"
-              style={{
-                left: x,
-                top: y,
-                transform: 'translate(-50%, -50%)',
-                color: i % 2 === 0 ? 'var(--color-ink)' : 'var(--color-maroon)',
-              }}
-            >
-              {label}
-            </span>
-          </div>
+          <line
+            key={`line-${i}`}
+            x1={xInner}
+            y1={yInner}
+            x2={xOuter}
+            y2={yOuter}
+            stroke="#D1D5DB"
+strokeWidth="2"
+strokeLinecap="round"
+          />
         )
       })}
 
-      {/* center octagon */}
-      <div
-        className="absolute flex items-center justify-center text-center px-6"
-        style={{
-          left: center,
-          top: center,
-          transform: 'translate(-50%, -50%)',
-          width: octagonRadius * 2,
-          height: octagonRadius * 2,
-          backgroundColor: 'var(--color-maroon)',
-          clipPath: OCTAGON_CLIP,
-        }}
+      {/* Outer labels */}
+      {dimensions.map((label, i) => {
+        const angle = (i * 2 * Math.PI) / n - Math.PI / 2
+        const x = outerR * Math.cos(angle)
+        const y = outerR * Math.sin(angle)
+
+        // Adjust text-anchor based on which side of the circle
+        const anchor = x > 5 ? 'start' : x < -5 ? 'end' : 'middle'
+        const dx = x > 5 ? 6 : x < -5 ? -6 : 0
+
+        return (
+          <text
+            key={`label-${i}`}
+            x={x + dx}
+            y={y}
+            textAnchor={anchor}
+            dominantBaseline="middle"
+            className="text-small font-semibold"
+            fill="#111827"
+            fontSize="13"
+          >
+            {label}
+          </text>
+        )
+      })}
+
+      {/* Central octagon */}
+      <polygon
+        points={octagonPoints}
+        fill="var(--color-maroon)"
+        stroke="var(--color-maroon)"
+        strokeWidth="1"
+      />
+
+      {/* Text inside octagon */}
+      <text
+        x="0"
+        y="-10"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        className="font-bold uppercase tracking-wide"
+        fill="var(--color-white)"
+        fontSize="10"
+        fontWeight="bold"
       >
-        <p className="text-small font-bold uppercase tracking-wide" style={{ color: 'var(--color-white)' }}>
-          The Vasant Valley Learning Experience
-        </p>
-      </div>
-    </div>
+        <tspan x="0" dy="-8">The Vasant Valley</tspan>
+        <tspan x="0" dy="14">Learning Experience</tspan>
+      </text>
+    </svg>
   )
 }

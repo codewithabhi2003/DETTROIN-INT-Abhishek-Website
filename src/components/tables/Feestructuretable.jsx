@@ -1,62 +1,103 @@
-// sections: [{ title, columns: string[], rows: [label, ...values][] }]
-// Each section gets its own column headers, since fee groupings differ
-// (e.g. Meals splits FDN–3 / 4–12, everything else splits FDN–5 / 6–10 / 11–12).
 export default function FeeStructureTable({ sections }) {
   return (
-    <div className="space-y-10">
+    <div className="space-y-12">
       {sections.map((section) => (
-        <div key={section.title} className="overflow-x-auto">
-          <table className="w-full border-collapse">
-            <caption
-              className="text-left text-small font-semibold uppercase tracking-wide mb-3"
-              style={{ color: 'var(--color-maroon)' }}
-            >
-              {section.title}
-            </caption>
-            <thead>
-              <tr style={{ borderBottom: '2px solid var(--color-border)' }}>
-                <th scope="col" className="text-left py-3 pr-4">
-                  <span className="sr-only">Fee item</span>
-                </th>
-                {section.columns.map((col) => (
-                  <th
-                    key={col}
-                    scope="col"
-                    className="text-right py-3 px-4 text-small font-semibold whitespace-nowrap"
-                    style={{ color: 'var(--color-ink)' }}
-                  >
-                    {col}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {section.rows.map(([label, ...values], i) => (
+        <section key={section.title}>
+          {/* Section Title */}
+          <h3
+            className="text-sm font-semibold uppercase tracking-[0.15em] mb-4"
+            style={{ color: "var(--color-maroon)" }}
+          >
+            {section.title}
+          </h3>
+
+          {/* Mobile Hint */}
+          <p
+            className="md:hidden text-xs mb-2"
+            style={{ color: "var(--color-ink-60)" }}
+          >
+            ← Swipe horizontally to view all columns →
+          </p>
+
+          {/* Table Wrapper */}
+          <div
+            className="overflow-x-auto rounded-xl border shadow-sm"
+            style={{
+              borderColor: "var(--color-border)",
+              background: "var(--color-white)",
+            }}
+          >
+            <table className="min-w-180 w-full border-collapse">
+              <thead>
                 <tr
-                  key={label}
-                  style={{ backgroundColor: i % 2 === 1 ? 'var(--color-surface)' : 'transparent' }}
+                  style={{
+                    backgroundColor: "var(--color-surface)",
+                    borderBottom: "2px solid var(--color-border)",
+                  }}
                 >
                   <th
-                    scope="row"
-                    className="text-left py-3 pr-4 font-normal text-small"
-                    style={{ color: 'var(--color-ink-60)' }}
+                    className="sticky left-0 z-20 text-left px-5 py-4 font-semibold"
+                    style={{
+                      backgroundColor: "var(--color-surface)",
+                      color: "var(--color-ink)",
+                    }}
                   >
-                    {label}
+                    Fee Item
                   </th>
-                  {values.map((value, vi) => (
-                    <td
-                      key={vi}
-                      className="text-right py-3 px-4 text-small whitespace-nowrap"
-                      style={{ color: 'var(--color-ink)' }}
+
+                  {section.columns.map((col) => (
+                    <th
+                      key={col}
+                      className="px-5 py-4 text-right whitespace-nowrap text-sm font-semibold"
+                      style={{ color: "var(--color-ink)" }}
                     >
-                      ₹{value}
-                    </td>
+                      {col}
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+
+              <tbody>
+                {section.rows.map(([label, ...values], index) => (
+                  <tr
+                    key={label}
+                    className="transition-colors hover:bg-gray-50"
+                    style={{
+                      backgroundColor:
+                        index % 2 === 0
+                          ? "var(--color-white)"
+                          : "var(--color-surface)",
+                    }}
+                  >
+                    <th
+                      scope="row"
+                      className="sticky left-0 px-5 py-4 text-left font-medium whitespace-nowrap"
+                      style={{
+                        backgroundColor:
+                          index % 2 === 0
+                            ? "var(--color-white)"
+                            : "var(--color-surface)",
+                        color: "var(--color-ink)",
+                      }}
+                    >
+                      {label}
+                    </th>
+
+                    {values.map((value, i) => (
+                      <td
+                        key={i}
+                        className="px-5 py-4 text-right whitespace-nowrap text-sm"
+                        style={{ color: "var(--color-ink)" }}
+                      >
+                        ₹ {Number(value).toLocaleString("en-IN")}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
       ))}
     </div>
   )

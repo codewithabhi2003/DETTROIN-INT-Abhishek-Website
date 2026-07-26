@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { X } from 'lucide-react'
 
 export default function RegisterModal({ isOpen, onClose, containerRef }) {
-  const [status, setStatus] = useState('idle') // idle | submitting | success | error
+  const [status, setStatus] = useState('idle')
   const [form, setForm] = useState({
     admissionNo: '',
     name: '',
@@ -31,8 +31,6 @@ export default function RegisterModal({ isOpen, onClose, containerRef }) {
 
     setStatus('submitting')
     try {
-      // TODO: wire to a real parent-portal registration endpoint
-      // (services/contactFormService.js follows this same mock-then-swap pattern)
       await new Promise((resolve) => setTimeout(resolve, 900))
       setStatus('success')
     } catch {
@@ -52,14 +50,14 @@ export default function RegisterModal({ isOpen, onClose, containerRef }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="register-modal-title"
-        className="relative w-full max-w-md rounded-modal p-8"
+        className="relative w-full max-w-xs sm:max-w-md rounded-modal p-6 sm:p-8"
         style={{ backgroundColor: 'var(--color-white)', boxShadow: 'var(--shadow-3)' }}
       >
         <button
           type="button"
           onClick={onClose}
           aria-label="Close registration form"
-          className="absolute top-5 right-5"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5"
           style={{ color: 'var(--color-ink-40)' }}
         >
           <X size={20} />
@@ -81,10 +79,20 @@ export default function RegisterModal({ isOpen, onClose, containerRef }) {
           </div>
         ) : (
           <>
-            <h2 id="register-modal-title" className="heading-2">
+            {/* School logo */}
+            <div className="flex justify-center mb-6">
+              <img
+                src="/favicon.svg"
+                alt="Vasant Valley School"
+                className="w-16 h-16 sm:w-20 sm:h-20"
+                loading="eager"
+              />
+            </div>
+
+            <h2 id="register-modal-title" className="heading-2 text-center">
               Register for portal access
             </h2>
-            <p className="text-small mt-2">
+            <p className="text-small mt-2 text-center">
               For parents only. Teachers and students receive credentials
               directly from the school office.
             </p>

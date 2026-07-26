@@ -20,7 +20,12 @@ const feeSections = [
       ['Math Programme (Quarterly, Class 2–8)', '810', '810', '810'],
       ['Bus — Vasant Kunj (Quarterly)', '10,494', '10,494', '10,494'],
       ['Bus — Non-Vasant Kunj (Quarterly)', '15,741', '15,741', '15,741'],
-      ['Bus — Vasant Vihar & Munirka (Quarterly)', '12,243', '12,243', '12,243'],
+      [
+        'Bus — Vasant Vihar & Munirka (Quarterly)',
+        '12,243',
+        '12,243',
+        '12,243',
+      ],
       ['Identity Card for Parents and Escorts', '50', '50', '50'],
     ],
   },
@@ -35,29 +40,90 @@ const feeSections = [
     rows: [
       ['Medical Charges (Annually)', '2,000', '2,000', '2,000'],
       ['Group Insurance (Annually)', '500', '500', '500'],
-      ["Founder's Day, Calendar, Class Photo (Annually)", '2,650', '2,650', '2,650'],
-      ['After School Extension Camps (Annually, Optional)', '30,000', '30,000', '30,000'],
+      [
+        "Founder's Day, Calendar & Class Photo (Annually)",
+        '2,650',
+        '2,650',
+        '2,650',
+      ],
+      [
+        'After School Extension Camps (Optional)',
+        '30,000',
+        '30,000',
+        '30,000',
+      ],
     ],
   },
 ]
 
 export default function FeeStructureSection() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-      <div className="section-container max-w-4xl mx-auto">
-        <h2 className="heading-1 text-center" style={{ color: 'var(--color-maroon)' }}>
-          Fee Structure
-        </h2>
-        <span className="gold-rule mx-auto" />
+    <section
+      className="section-padding"
+      style={{ backgroundColor: 'var(--color-white)' }}
+    >
+      <div className="section-container max-w-6xl mx-auto">
 
-        <div className="mt-10">
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center">
+          <h2
+            className="heading-1"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            Fee Structure
+          </h2>
+
+          <span className="gold-rule mx-auto mt-4" />
+
+          <p
+            className="body-m mt-6"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            The following fee structure is applicable for the current
+            academic session. All fees are payable as per the school's
+            schedule and may be revised from time to time.
+          </p>
+        </div>
+
+        {/* Fee Tables */}
+        <div className="mt-14 space-y-12">
           <FeeStructureTable sections={feeSections} />
         </div>
 
-        <p className="text-small mt-8" style={{ color: 'var(--color-ink-40)' }}>
-          All amounts in ₹ (INR). Figures shown are the current fee
-          structure and are subject to revision.
-        </p>
+        {/* Important Note */}
+        <div className="mt-12 rounded-(--radius-img) bg-gold-light p-6 md:p-8">
+          <h3
+            className="heading-3"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            Important Information
+          </h3>
+
+          <ul
+            className="mt-5 space-y-3 body-m"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            <li>
+              • All amounts are shown in <strong>₹ (INR)</strong>.
+            </li>
+
+            <li>
+              • The fee structure is subject to revision by the school
+              management.
+            </li>
+
+            <li>
+              • Optional services such as transport and extension camps
+              are charged separately.
+            </li>
+
+            <li>
+              • Parents are advised to refer to the latest fee circular
+              issued by the school for updated information.
+            </li>
+          </ul>
+        </div>
+
       </div>
     </section>
   )

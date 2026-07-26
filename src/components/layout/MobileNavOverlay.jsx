@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { X } from 'lucide-react'
 
-// TODO: move to data/navigation.json + a navigationService once that layer exists
 const navGroups = [
   {
     title: 'About',
@@ -21,7 +20,6 @@ const navGroups = [
       { label: 'Special Education Needs', to: '/campus/special-education-needs' },
       { label: 'A Day in School', to: '/campus/a-day-in-school' },
       { label: 'Infrastructure', to: '/campus/infrastructure' },
-      
     ],
   },
   {
@@ -102,16 +100,41 @@ export default function MobileNavOverlay({ isOpen, onClose }) {
       className="fixed inset-0 z-50 overflow-y-auto"
       style={{ backgroundColor: 'var(--color-ink)' }}
     >
-      <div className="section-container py-6">
+      {/* Subtle background image with overlay */}
+      <div
+        className="absolute inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage:
+            'url(https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          mixBlendMode: 'overlay',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative section-container py-6">
         <div className="flex items-center justify-between">
           <Link
             to="/"
             onClick={onClose}
-            className="text-small font-semibold uppercase"
-            style={{ color: 'var(--color-white)', letterSpacing: '0.08em' }}
+            className="flex items-center gap-2"
+            aria-label="Vasant Valley School — home"
           >
-            Vasant Valley
+            <img
+              src="/favicon.svg"
+              alt=""
+              className="w-10 h-10 md:w-11.5 md:h-11.5"
+              aria-hidden="true"
+            />
+            <span
+              className="text-small font-semibold uppercase hidden sm:inline"
+              style={{ color: 'var(--color-white)', letterSpacing: '0.08em' }}
+            >
+              Vasant Valley
+            </span>
           </Link>
+
           <button
             type="button"
             onClick={onClose}
@@ -127,12 +150,12 @@ export default function MobileNavOverlay({ isOpen, onClose }) {
           to="/"
           onClick={onClose}
           className="block mt-10"
-          style={{ fontFamily: 'var(--font-display)', fontSize: 40, fontWeight: 600, color: 'var(--color-white)' }}
+          style={{ fontFamily: 'var(--font-display)', color: 'var(--color-white)' }}
         >
-          Home
+          <span className="text-3xl sm:text-4xl lg:text-5xl font-semibold">Home</span>
         </Link>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
           {navGroups.map((group) => (
             <div key={group.title}>
               <p

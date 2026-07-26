@@ -9,33 +9,51 @@ const items = [
   {
     id: 'sports-camps',
     title: 'Sports Camps',
-    body: 'The school runs several after School Sports Camps for children who are keen to excel in a particular sport.',
+    body: 'The school runs several after-school sports camps for children who are keen to excel in a particular sport.',
   },
   {
     id: 'special-needs-therapy',
     title: 'Special Needs Therapy',
-    body: "Vasant Valley School has a dedicated multidisciplinary team of Occupational Therapists, Special Educators, Physical Therapists and Behaviour Therapists to deliver individualised services to meet children's needs. Services are available for children, who are not students at Vasant Valley School.",
+    body: "Vasant Valley School has a dedicated multidisciplinary team of Occupational Therapists, Special Educators, Physical Therapists and Behaviour Therapists to deliver individualised services to meet children's needs. Services are available for children who are not students at Vasant Valley School.",
   },
   {
     id: 'rte-extension',
     title: 'After-School Extension Programme',
-    body: 'Extra classes are held free of cost, to extend remedial support to students belonging to the Right To Education category.',
+    body: 'Extra classes are held free of cost to extend remedial support to students belonging to the Right to Education category.',
   },
 ]
 
 export default function AfterSchoolExtension() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-      <div className="section-container">
-        <h2 className="heading-1">After School Extension Programmes</h2>
-        <span className="gold-rule" />
-        <p className="body-m mt-5 max-w-2xl" style={{ color: 'var(--color-ink)' }}>
-          These allow children from Classes 3 to 12 to delve deeper into a
-          particular area of interest. There are additional charges for
-          these camps and school transport is not available after the
-          camps.
-        </p>
-        <ProgrammeAccordion items={items} />
+    <section
+      className="section-padding"
+      style={{ backgroundColor: 'var(--color-white)' }}
+    >
+      <div className="section-container max-w-6xl mx-auto">
+        <div className="max-w-3xl">
+          <h2
+            className="heading-1"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            After School Extension Programmes
+          </h2>
+
+          <span className="gold-rule mt-4" />
+
+          <p
+            className="body-m mt-6"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            These programmes allow students from Classes 3 to 12 to explore
+            their interests beyond regular school hours through specialised
+            learning experiences. Additional charges apply, and school
+            transport is not available after the camps.
+          </p>
+        </div>
+
+        <div className="mt-10 md:mt-12">
+          <ProgrammeAccordion items={items} />
+        </div>
       </div>
     </section>
   )

@@ -31,7 +31,6 @@ const columns = [
   ],
 ]
 
-// TODO: swap for the school's real social profile URLs
 const socialLinks = [
   { label: 'Facebook', href: 'https://facebook.com/vasantvalleyschool', Icon: FacebookIcon },
   { label: 'Instagram', href: 'https://instagram.com/vasantvalleyschool', Icon: InstagramIcon },
@@ -41,14 +40,31 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: 'var(--color-maroon)' }}>
-      <div className="section-container section-padding">
-        <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-10">
+    <footer className="relative" style={{ backgroundColor: 'var(--color-maroon)' }}>
+      {/* Background image with overlay */}
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage:
+            'url(https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          mixBlendMode: 'overlay',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative section-container section-padding">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {columns.map((links, i) => (
             <ul key={i} className="space-y-3">
               {links.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-small" style={{ color: 'rgba(255,255,255,0.88)' }}>
+                  <Link
+                    to={link.to}
+                    className="text-small hover:underline"
+                    style={{ color: 'rgba(255,255,255,0.88)' }}
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -56,7 +72,7 @@ export default function Footer() {
             </ul>
           ))}
 
-          <div>
+          <div className="text-center sm:text-left">
             <p
               className="text-small font-semibold uppercase tracking-wide"
               style={{ color: 'var(--color-gold-light)' }}
@@ -65,14 +81,14 @@ export default function Footer() {
             </p>
             <a
               href={CONTACT_INFO.phoneHref}
-              className="flex items-center gap-2 text-small mt-3"
+              className="flex items-center justify-center sm:justify-start gap-2 text-small mt-3"
               style={{ color: 'rgba(255,255,255,0.88)' }}
             >
               <Phone size={14} aria-hidden="true" /> {CONTACT_INFO.phone}
             </a>
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className="flex items-center gap-2 text-small mt-2"
+              className="flex items-center justify-center sm:justify-start gap-2 text-small mt-2"
               style={{ color: 'rgba(255,255,255,0.88)' }}
             >
               <Mail size={14} aria-hidden="true" /> {CONTACT_INFO.email}
@@ -84,7 +100,7 @@ export default function Footer() {
           className="mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-6"
           style={{ borderTop: '1px solid rgba(255,255,255,0.15)' }}
         >
-          <p className="text-micro" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          <p className="text-micro text-center md:text-left" style={{ color: 'rgba(255,255,255,0.7)' }}>
             © {new Date().getFullYear()} Vasant Valley School
           </p>
 
@@ -96,6 +112,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
+                  className="hover:opacity-80 transition-opacity"
                   style={{ color: 'rgba(255,255,255,0.85)' }}
                 >
                   <Icon size={18} />
@@ -108,7 +125,7 @@ export default function Footer() {
             href={CONTACT_INFO.mapUrl}
             target="_blank"
             rel="noreferrer"
-            className="text-micro"
+            className="text-micro text-center md:text-right hover:underline"
             style={{ color: 'rgba(255,255,255,0.7)' }}
           >
             {CONTACT_INFO.addressLine}, {CONTACT_INFO.postalCode} | MAP
@@ -116,8 +133,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div style={{ backgroundColor: 'var(--color-ink-max)' }}>
-        <div className="section-container py-4 text-center">
+      <div className="relative" style={{ backgroundColor: 'var(--color-ink-max)' }}>
+        <div className="section-container py-4 text-center px-4">
           <p className="text-micro" style={{ color: 'rgba(255,255,255,0.6)' }}>
             We are grateful to our alumni, Ishaan Gupta (Class of 2006), Medha
             Vira Gupta (Class of 2009) and Samvid Gupta (Class of 2010) for

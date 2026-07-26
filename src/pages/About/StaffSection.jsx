@@ -7,6 +7,16 @@ export default function StaffSection() {
         </h2>
         <span className="gold-rule" />
 
+        {/* Staff image – responsive, full-width */}
+        <div className="mt-8 rounded-(--radius-img)] overflow-hidden shadow-lg">
+  <img
+    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1400"
+    alt="Teachers collaborating during a staff meeting"
+    className="w-full h-auto md:max-h-125 object-cover transition-transform duration-500 hover:scale-105"
+    loading="lazy"
+  />
+</div>
+
         <div className="grid md:grid-cols-2 gap-10 mt-8">
           <p className="body">
             Our staff is a diverse group of individuals, with a strong sense

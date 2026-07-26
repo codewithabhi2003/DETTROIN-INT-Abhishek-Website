@@ -32,7 +32,7 @@ export default function Navbar() {
               <Menu size={20} color="var(--color-white)" aria-hidden="true" />
             </button>
 
-            <Link to="/" className="flex items-center" aria-label="Vasant Valley School — home">
+            <Link to="/" className="flex items-center shrink-0" aria-label="Vasant Valley School — home">
               <Logo />
             </Link>
           </div>
@@ -49,7 +49,10 @@ export default function Navbar() {
               <Search size={20} aria-hidden="true" />
             </button>
 
-            <Link to={isAuthenticated ? '/account' : '/login'} className="btn-primary">
+            <Link
+              to={isAuthenticated ? '/account' : '/login'}
+              className="btn-primary inline-flex items-center gap-2"
+            >
               {isAuthenticated ? 'Account' : 'Log in'} <ArrowRight size={14} />
             </Link>
           </div>
@@ -79,13 +82,14 @@ export default function Navbar() {
 
 function Logo() {
   return (
-    <div className="flex flex-col items-center leading-none" aria-hidden="true">
-      {/* IMAGE SLOT — replace with real assets/logos/vvs-logo.svg */}
-      <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M23 2 L44 23 L23 44 L2 23 Z" stroke="var(--color-ink)" strokeWidth="1.5" />
-        <path d="M23 9 L37 23 L23 37 L9 23 Z" stroke="var(--color-maroon)" strokeWidth="1.2" />
-        <circle cx="23" cy="16" r="2.4" fill="var(--color-maroon)" />
-      </svg>
+    <div className="flex flex-col items-center leading-none shrink-0" aria-hidden="true">
+      {/* Real favicon from public directory – responsive sizing */}
+      <img
+        src="/favicon.svg"
+        alt="Vasant Valley School logo"
+        className="w-10 h-10 md:w-11.5 md:h-11.5"
+        loading="eager"
+      />
       <span
         className="text-micro font-semibold uppercase mt-1"
         style={{ color: 'var(--color-ink)', letterSpacing: '0.08em' }}

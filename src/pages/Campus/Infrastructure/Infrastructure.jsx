@@ -1,89 +1,250 @@
 import { Helmet } from 'react-helmet-async'
-import { ArrowRight } from 'lucide-react'
+import {
+  ArrowRight,
+  Building2,
+  HeartPulse,
+  Bus,
+} from 'lucide-react'
 
 const sections = [
   {
     title: 'Learning Spaces',
+    icon: Building2,
     paragraphs: [
-      'The School has well equipped Science laboratories, two libraries, a state-of-the-art Occupational Therapy facility, an auditorium and gymnasium, extensive sports facilities and a specialized centre for the Visual and Performing Arts. All classrooms are equipped for streaming audio/visual content and the entire campus is wireless enabled.',
+      'The school features well-equipped Science laboratories, two libraries, a state-of-the-art Occupational Therapy facility, a modern auditorium, gymnasium, extensive sports facilities and a dedicated Centre for Visual and Performing Arts.',
+      'Every classroom is equipped for audio-visual learning, while the entire campus is supported by high-speed wireless connectivity to enhance teaching and collaboration.',
     ],
   },
   {
     title: 'Health & Safety',
+    icon: HeartPulse,
     paragraphs: [
-      'To ensure high quality primary medical care for the students and teachers, we have 3 full time, qualified nurses on the campus and a Paediatrician available on call. There are two fully equipped medical rooms and, by virtue of our location, we have several big hospitals within a kilometre of the school campus.',
-      'We regularly conduct trainings, workshops and seminars to educate our students and staff on First Responder drills for health, fire, earthquakes and other natural disasters. All staff members and senior students are trained in basic minimum first aid. The School regularly conducts mock drills, safety workshops and sessions to prepare our staff and children to deal with an emergency.',
-      'An annual health check-up is conducted for students as well as all staff members. Our foremost priority is the safety and security of everyone on campus as well as the community.',
-      "CCTV cameras, fire extinguishers and air purifiers are installed throughout the school building and grounds. The School has a strict zero-tolerance policy regarding bullying and substance abuse of any kind. Regular workshops and training sessions are held for teachers and students on Cyber Safety and the norms of safe use of technology.",
+      'The campus has three full-time qualified nurses, fully equipped medical rooms and a paediatrician available on call. Several leading hospitals are located within a kilometre of the school.',
+      'Students and staff regularly participate in workshops and emergency response training covering first aid, fire safety, earthquakes and other emergency preparedness drills.',
+      'Annual health check-ups are conducted for all students and staff. CCTV surveillance, air purifiers, fire safety systems and a strict zero-tolerance policy towards bullying and substance abuse ensure a safe learning environment.',
+      'Cyber safety workshops and responsible technology sessions are conducted throughout the year to promote safe digital practices.',
     ],
   },
   {
     title: 'Transport',
+    icon: Bus,
     paragraphs: [
-      "Students from the neighbouring areas of South Delhi can avail the facility of school transport. The School encourages carpooling amongst students who come to school in their own vehicles. We also encourage parents to organise private buses in areas where School buses do not ply. The buses comply with all the guidelines of the Government of NCT, Delhi and the Hon'ble Supreme Court of India.",
+      "Students across South Delhi can avail the school's transport facility. The school also encourages organised carpooling and community transport initiatives wherever school buses are unavailable.",
+      "All buses comply with the Government of NCT of Delhi and Hon'ble Supreme Court safety guidelines to ensure secure and reliable transportation.",
     ],
   },
 ]
 
-const PHOTO_GALLERY_URL = 'https://static.vasantvalley.org/wp-content/uploads/2021/05/part-9.jpg'
+const PHOTO_GALLERY_URL =
+  'https://static.vasantvalley.org/wp-content/uploads/2021/05/part-9.jpg'
 
 export default function Infrastructure() {
   return (
     <>
       <Helmet>
         <title>Infrastructure | Vasant Valley School</title>
+
         <meta
           name="description"
-          content="The Vasant Valley School campus — learning spaces, health & safety, and transport facilities."
+          content="Explore the Vasant Valley School campus, featuring modern learning spaces, sports facilities, health services, safety systems and transport."
         />
       </Helmet>
 
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-        <div className="section-container max-w-2xl mx-auto text-center">
-          <h1 className="heading-1" style={{ color: 'var(--color-maroon)' }}>
-            Infrastructure
-          </h1>
-          <span className="gold-rule mx-auto" />
+      {/* Hero */}
 
-          <p className="body-l mt-8">
-            The campus has sports fields, gardens, play areas and
-            courtyards, with over 400 species of trees and plants.
-          </p>
-          <p className="body mt-4">
-            The school is surrounded by the busy neighbourhood of Vasant
-            Kunj on one side and the main road connecting the capital city
-            to the airport on the other. While there is a planned space for
-            every activity, there are also many open "mixed-use" areas. The
-            entire campus is challenge compliant.
-          </p>
+      <section className="relative h-90 md:h-120 lg:h-160 overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?auto=compress&cs=tinysrgb&w=1800"
+          alt="Modern school campus"
+          className="w-full h-full object-cover"
+        />
 
-          <a href={PHOTO_GALLERY_URL} target="_blank" rel="noreferrer" className="btn-secondary mt-6">
-            Photo gallery <ArrowRight size={14} />
-          </a>
+        <div className="absolute inset-0 bg-black/45" />
+
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="max-w-4xl px-6 text-center">
+            <span className="badge badge-gold mx-auto mb-6">
+              Campus
+            </span>
+
+            <h1 className="heading-1 text-white">
+              Infrastructure
+            </h1>
+
+            <span className="gold-rule mx-auto mt-5" />
+
+            <p className="body-l text-white/90 mt-8 max-w-3xl mx-auto">
+              Purposefully designed learning spaces, modern facilities and
+              green open environments create an inspiring campus where
+              students learn, collaborate and thrive every day.
+            </p>
+          </div>
         </div>
       </section>
 
-      {sections.map((section, i) => (
-        <section
-          key={section.title}
-          className="section-padding"
-          style={{ backgroundColor: i % 2 === 0 ? 'var(--color-surface)' : 'var(--color-white)' }}
-        >
-          <div className="section-container max-w-2xl mx-auto">
-            <h2 className="heading-1" style={{ color: 'var(--color-maroon)' }}>
-              {section.title}
-            </h2>
-            <span className="gold-rule" />
-            <div className="mt-6 space-y-4">
-              {section.paragraphs.map((p, pi) => (
-                <p key={pi} className="body">
-                  {p}
-                </p>
-              ))}
+      {/* Overview */}
+
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-white)' }}
+      >
+        <div className="section-container max-w-6xl mx-auto">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <div>
+              <h2
+                className="heading-2"
+                style={{ color: 'var(--color-maroon)' }}
+              >
+                A Campus Designed for Learning
+              </h2>
+
+              <span className="gold-rule mt-4" />
+
+              <p
+                className="body-m mt-6"
+                style={{ color: 'var(--color-ink-70)' }}
+              >
+                The campus combines academic spaces, sports facilities,
+                gardens, courtyards and recreational areas within a vibrant
+                green environment featuring more than 400 species of trees
+                and plants.
+              </p>
+
+              <p
+                className="body-m mt-5"
+                style={{ color: 'var(--color-ink-70)' }}
+              >
+                Every part of the campus is thoughtfully planned to
+                encourage collaboration, creativity and accessibility,
+                while remaining fully challenge compliant.
+              </p>
+
+              <a
+                href={PHOTO_GALLERY_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary mt-8 inline-flex items-center gap-2"
+              >
+                View Photo Gallery
+                <ArrowRight size={16} />
+              </a>
             </div>
+
+            <div className="overflow-hidden rounded-(--radius-img) shadow-lg aspect-4/3">
+              <img
+                src="https://images.pexels.com/photos/8613317/pexels-photo-8613317.jpeg?auto=compress&cs=tinysrgb&w=1400"
+                alt="Students walking through a modern school campus"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+
           </div>
-        </section>
-      ))}
+
+        </div>
+      </section>
+
+      {/* Feature Cards */}
+
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-gold-light)' }}
+      >
+        <div className="section-container max-w-6xl mx-auto">
+
+          <div className="grid grid-cols-1 gap-8">
+
+            {sections.map((section) => {
+              const Icon = section.icon
+
+              return (
+                <div
+                  key={section.title}
+                  className="rounded-(--radius-img) bg-white p-8 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div className="flex flex-col md:flex-row gap-8">
+
+                    <div
+                      className="w-16 h-16 rounded-full flex items-center justify-center shrink-0"
+                      style={{
+                        backgroundColor: 'rgba(128,97,35,.12)',
+                      }}
+                    >
+                      <Icon
+                        size={30}
+                        style={{
+                          color: 'var(--color-maroon)',
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <h2
+                        className="heading-2"
+                        style={{
+                          color: 'var(--color-maroon)',
+                        }}
+                      >
+                        {section.title}
+                      </h2>
+
+                      <span className="gold-rule mt-4" />
+
+                      <div className="space-y-5 mt-6">
+                        {section.paragraphs.map((paragraph) => (
+                          <p
+                            key={paragraph}
+                            className="body-m"
+                            style={{
+                              color: 'var(--color-ink-70)',
+                            }}
+                          >
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              )
+            })}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Closing */}
+
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-white)' }}
+      >
+        <div className="section-container max-w-4xl mx-auto text-center">
+
+          <h2
+            className="heading-2"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            An Environment That Inspires
+          </h2>
+
+          <span className="gold-rule mx-auto mt-4" />
+
+          <p
+            className="body-l mt-8"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            From technology-enabled classrooms and specialist learning
+            centres to safe transport and comprehensive healthcare, every
+            aspect of the Vasant Valley campus is designed to support
+            academic excellence, creativity and student wellbeing.
+          </p>
+
+        </div>
+      </section>
     </>
   )
 }

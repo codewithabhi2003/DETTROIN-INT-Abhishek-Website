@@ -24,32 +24,35 @@ const igcseSubjects = [
 
 function DataTable({ headers, rows }) {
   return (
-    <div className="overflow-x-auto mt-6 rounded-(--radius-img)" style={{ border: '1px solid var(--color-ink-10, rgba(11,15,25,0.1))' }}>
-      <table className="w-full text-small" style={{ borderCollapse: 'collapse' }}>
+    <div className="mt-8 overflow-x-auto rounded-(--radius-img)] border shadow-sm">
+      <table className="min-w-180 w-full border-collapse text-sm">
         <thead>
-          <tr>
-            {headers.map((h) => (
+          <tr className="bg-maroon">
+            {headers.map((header) => (
               <th
-                key={h}
-                className="text-left font-medium px-3 py-2"
-                style={{
-                  color: 'var(--color-white)',
-                  backgroundColor: 'var(--color-ink)',
-                }}
+                key={header}
+                className="px-5 py-4 text-left font-semibold text-white whitespace-nowrap"
               >
-                {h}
+                {header}
               </th>
             ))}
           </tr>
         </thead>
+
         <tbody>
-          {rows.map((row, i) => (
-            <tr key={i} style={{ backgroundColor: i % 2 ? 'var(--color-gold-light)' : 'var(--color-white)' }}>
-              {row.map((cell, j) => (
+          {rows.map((row, index) => (
+            <tr
+              key={index}
+              className="even:bg-gold-light"
+            >
+              {row.map((cell, cellIndex) => (
                 <td
-                  key={j}
-                  className="px-3 py-2"
-                  style={{ borderTop: '1px solid var(--color-ink-10, rgba(11,15,25,0.1))', color: 'var(--color-ink)' }}
+                  key={cellIndex}
+                  className="border-t px-5 py-4"
+                  style={{
+                    borderColor: 'rgba(11,15,25,.08)',
+                    color: 'var(--color-ink)',
+                  }}
                 >
                   {cell}
                 </td>
@@ -64,20 +67,31 @@ function DataTable({ headers, rows }) {
 
 function KeyValueTable({ rows }) {
   return (
-    <div className="overflow-x-auto mt-6 rounded-(--radius-img)" style={{ border: '1px solid var(--color-ink-10, rgba(11,15,25,0.1))' }}>
-      <table className="w-full text-small" style={{ borderCollapse: 'collapse' }}>
+    <div className="mt-8 overflow-x-auto rounded-(--radius-img)] border shadow-sm">
+      <table className="min-w-160 w-full border-collapse text-sm">
         <tbody>
-          {rows.map((row, i) => (
-            <tr key={row.label} style={{ backgroundColor: i % 2 ? 'var(--color-gold-light)' : 'var(--color-white)' }}>
+          {rows.map((row, index) => (
+            <tr
+              key={row.label}
+              className="even:bg-gold-light"
+            >
               <td
-                className="px-3 py-2 font-medium whitespace-nowrap align-top"
-                style={{ borderTop: '1px solid var(--color-ink-10, rgba(11,15,25,0.1))', color: 'var(--color-gold-dark, var(--color-gold))', width: '1%' }}
+                className="sticky left-0 border-t bg-white px-5 py-4 font-semibold whitespace-nowrap"
+                style={{
+                  borderColor: 'rgba(11,15,25,.08)',
+                  color: 'var(--color-maroon)',
+                  width: '22%',
+                }}
               >
                 {row.label}
               </td>
+
               <td
-                className="px-3 py-2"
-                style={{ borderTop: '1px solid var(--color-ink-10, rgba(11,15,25,0.1))', color: 'var(--color-ink)' }}
+                className="border-t px-5 py-4"
+                style={{
+                  borderColor: 'rgba(11,15,25,.08)',
+                  color: 'var(--color-ink)',
+                }}
               >
                 {row.value}
               </td>
@@ -91,69 +105,114 @@ function KeyValueTable({ rows }) {
 
 export default function CurriculumSection() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'var(--color-gold-light)' }}>
-      <div className="section-container grid md:grid-cols-2 gap-12">
-        <div>
-          <h2 className="heading-1">Going Above &amp; Beyond</h2>
-          <span className="gold-rule" />
-          <div className="body-m space-y-4 mt-5" style={{ color: 'var(--color-ink)' }}>
-            <p>
-              The curriculum goes beyond the prescribed CBSE syllabus, where
-              the process is as important as the outcome. We have various
-              programmes that nurture the cerebral, social, emotional,
-              physical, spiritual and creative development of every child.
-            </p>
-            <p>
-              A wide array of activities and a holistic curriculum structure
-              nurtures well rounded individuals. The School strives to
-              inculcate a humane and robust value system in its students. The
-              focus is on collaboration and doing the right thing even when
-              'no one is looking'.
-            </p>
-            <p>
-              Critical thinking and 'learning how to learn' are the key
-              skills that students and teachers are encouraged to develop at
-              Vasant Valley School. Our endeavour is to create a learning
-              environment where all students can actualise their potential.
-            </p>
-            <p>Students will select subjects in Grade 11 &amp; 12 as follows:</p>
-          </div>
-          <DataTable headers={seniorElectives.headers} rows={seniorElectives.rows} />
+    <section
+  className="section-padding"
+  style={{ backgroundColor: 'var(--color-gold-light)' }}
+>
+  <div className="section-container">
+
+    <div className="grid grid-cols-1 xl:grid-cols-2 gap-16">
+
+      {/* CBSE */}
+
+      <div>
+        <h2
+          className="heading-1"
+          style={{ color: 'var(--color-maroon)' }}
+        >
+          Going Above &amp; Beyond
+        </h2>
+
+        <span className="gold-rule mt-4" />
+
+        <div
+          className="space-y-5 mt-6"
+          style={{ color: 'var(--color-ink-70)' }}
+        >
+          <p>
+            The curriculum goes beyond the prescribed CBSE syllabus where
+            the learning process is as important as the outcome.
+          </p>
+
+          <p>
+            Through academics, arts, sports and life skills, students are
+            encouraged to become compassionate, curious and responsible
+            individuals.
+          </p>
+
+          <p>
+            Critical thinking, collaboration and lifelong learning remain
+            central to every learning experience.
+          </p>
+
+          <p className="font-semibold">
+            Students select subjects in Grades 11 &amp; 12:
+          </p>
         </div>
 
-        <div>
-          <h2 className="heading-1">IGCSE</h2>
-          <span className="gold-rule" />
-          <div className="body-m space-y-4 mt-5" style={{ color: 'var(--color-ink)' }}>
-            <p>
-              Vasant Valley School is offering the Cambridge International
-              General Certificate of Secondary Education (IGCSE) for class 9.
-            </p>
-            <p className="font-medium" style={{ color: 'var(--color-ink)' }}>Why IGCSE?</p>
-            <p>
-              Considered the most 'popular' international certification for
-              14–16-year-olds, the core of the IGCSE curriculum emphasises a
-              practical approach to learning based on inquiry. It works
-              towards developing analytical, problem solving, and
-              communication skills. The learners ask questions, explore,
-              brainstorm, discuss and share ideas.
-            </p>
-            <p className="font-medium" style={{ color: 'var(--color-ink)' }}>Why IGCSE in Vasant Valley School?</p>
-            <p>
-              The teaching-learning process in Vasant Valley School is
-              synchronised to the methods followed by the Cambridge Board.
-              The essence of our pedagogy is 'learning for understanding' and
-              reading beyond course books, which epitomises the IGCSE
-              philosophy. The Cambridge Board offers learners a plethora of
-              subjects, and these subject choices appeal to students with
-              varying areas of interest. A typical IGCSE classroom will have
-              students studying different sets of subjects.
-            </p>
-            <p>Students will select 9 subjects in Grade 9 as follows:</p>
-          </div>
-          <KeyValueTable rows={igcseSubjects} />
-        </div>
+        <DataTable
+          headers={seniorElectives.headers}
+          rows={seniorElectives.rows}
+        />
       </div>
-    </section>
+
+      {/* IGCSE */}
+
+      <div>
+        <h2
+          className="heading-1"
+          style={{ color: 'var(--color-maroon)' }}
+        >
+          IGCSE
+        </h2>
+
+        <span className="gold-rule mt-4" />
+
+        <div
+          className="space-y-5 mt-6"
+          style={{ color: 'var(--color-ink-70)' }}
+        >
+          <p>
+            Vasant Valley School offers the Cambridge International General
+            Certificate of Secondary Education for Grade 9 students.
+          </p>
+
+          <h3
+            className="heading-3"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            Why IGCSE?
+          </h3>
+
+          <p>
+            The curriculum promotes inquiry, analytical thinking,
+            communication and problem-solving through active learning.
+          </p>
+
+          <h3
+            className="heading-3"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            Why at Vasant Valley?
+          </h3>
+
+          <p>
+            Our teaching philosophy aligns closely with Cambridge's
+            learner-centred approach, encouraging students to explore
+            subjects beyond textbooks.
+          </p>
+
+          <p className="font-semibold">
+            Students choose nine subjects in Grade 9:
+          </p>
+        </div>
+
+        <KeyValueTable rows={igcseSubjects} />
+      </div>
+
+    </div>
+
+  </div>
+</section>
   )
 }

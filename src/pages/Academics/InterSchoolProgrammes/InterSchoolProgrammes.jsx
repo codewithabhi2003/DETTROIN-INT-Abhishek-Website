@@ -5,82 +5,94 @@ const programmes = [
   {
     id: 'drama-festival',
     title: 'Vasant Valley Drama Festival',
-    body: 'A much-awaited annual event, held over 3 days in the month of August. Over the years, since its inception in 1992, this Festival has been the perfect occasion to showcase skills in drama, dance and music. A drama workshop is conducted for all the participating schools. Besides the plays, all students from Classes 3 to 5 of Vasant Valley School perform in various dance and music interludes. As the name suggests, it is a festival, a platform to showcase ideas and skills, not a competition.',
+    body: 'A much-awaited annual event, held over 3 days in August. Since its inception in 1992, the festival has showcased drama, dance and music while bringing schools together through workshops and performances. It is a celebration of creativity rather than a competition.',
   },
   {
     id: 'inter-school-sports',
     title: 'Inter-School Sports',
-    body: 'The school hosts several tournaments for both boys and girls, across ages and categories in Athletics, Basketball, Football, Hockey, Tennis and Cricket.',
+    body: 'The school hosts tournaments for boys and girls across Athletics, Basketball, Football, Hockey, Tennis and Cricket, encouraging teamwork, discipline and sportsmanship.',
   },
   {
     id: 'india-today-debate',
     title: 'India Today English Debate',
-    body: 'The Vasant Valley Debate for the India Today Cup is a platform for young debaters across the country and abroad to deliberate, interact and learn, the debate follows the Parliamentary form of debating and is adjudicated by accomplished debaters of Delhi University. Participants engage in 2 days of rigorous debating, scrutinising motions from a spectrum of subjects like Economics, International Relations, Politics, Sociology and other topical issues. The event allows young minds to engage in discourse and rationalise their arguments using facts and theories, keeping up the spirit of open discourse, share perspectives and engage in constructive dialogue.',
+    body: 'A prestigious parliamentary debate where students from India and abroad discuss Economics, Politics, Sociology, International Relations and contemporary issues under the guidance of experienced adjudicators.',
   },
   {
     id: 'aaj-tak-debate',
     title: 'Aaj Tak Hindi Debate',
-    body: 'An all-India school debating event, where topics of current importance and matters of ethics and principles are avidly discussed and hotly debated. Since 2011, this 2-day event has popularised debating in Hindi and instilled critical thinking and analysis.',
+    body: 'An all-India debating competition that encourages students to discuss current affairs, ethics and public issues while strengthening critical thinking and Hindi oratory.',
   },
   {
     id: 'tech-vviz',
     title: 'Tech VViz',
-    body: 'An Inter-School Technology Festival, where students from different cities across India participate in various technology driven events like Digital Imaging, Music Creation, Technology Quiz and Gaming. The flagship event of the Festival is the Multimedia Contest which builds awareness among adolescents on current social issues. It also provides a platform for students to express their creative and critical thinking skills through the use of Technology.',
+    body: 'An inter-school technology festival featuring Digital Imaging, Multimedia, Music Creation, Technology Quiz and Gaming while encouraging innovation and creative problem-solving.',
   },
   {
     id: 'maths-quiz',
     title: 'Inter-School Mathematics Quiz',
-    body: 'An annual event for students of Class 10, the Quiz has three graded levels, where students from across the country participate in this event. It helps to showcase their spatial, cognitive, reasoning, logical thinking and mathematical skills.',
+    body: 'An annual national quiz for Class 10 students that develops logical reasoning, spatial thinking, mathematical ability and problem-solving skills.',
   },
   {
     id: 'synapse',
     title: 'Synapse',
-    body: 'An Annual Inter School Science event, this initiative has activities to encourage students to analyze their environment through a scientific lens. Apart from engaging participants through various challenges, a talk by an eminent scientist is also planned on the same day.',
+    body: 'An annual science festival where students explore scientific inquiry through exciting challenges, experiments and inspiring talks by eminent scientists.',
   },
   {
     id: 'vveaves',
     title: 'VVEAVES',
-    body: 'An Inter-School Festival to showcase cross-curricular learning, bringing together students of Class 4 from different schools of the NCR to explore a chosen theme across subject domains. Students collaborate in groups over two days and weave the theme into a presentation to culminate the festival.',
+    body: 'A cross-curricular learning festival where Class 4 students collaborate across subjects and schools to explore a common theme and present their collective learning.',
   },
   {
     id: 'laissez-faire',
     title: 'Laissez Faire',
-    body: 'This annual competitive activity organised by the Social Science Department gives students the freedom to think creatively and apply principles to real life case studies with action-oriented solutions. In order to strengthen the spirit of collaboration, teams are formed with students from different schools who are encouraged to work together to find innovative solutions to international issues.',
+    body: 'A Social Science event where mixed-school teams collaborate to create innovative solutions for global issues using research, creativity and teamwork.',
   },
   {
     id: 'voices',
     title: 'Voices at Vasant Valley',
-    body: 'Speakers from diverse backgrounds are invited to share their life experiences. Over the years, "Voices" has helped in inspiring our students and making them aware of diverse roads people traverse to pursue their dreams and thus make career choices.',
+    body: 'Inspirational speakers from diverse backgrounds share their journeys, helping students understand different career paths and life experiences.',
   },
   {
     id: 'art-marathon',
     title: 'Art Marathon',
-    body: 'Is a two-day workshop conducted by well known artists from various fields. This gives students an opportunity for personal expression and cooperative learning. Our students and those from other schools share ideas and resources to create works of art. At the end of the second day the Art Marathon draws to a close with a performance and exhibition of the creative work the students have done - allowing them to share and reflect on what they have learnt.',
+    body: 'A two-day creative workshop where students work with renowned artists, collaborate with peers from other schools and exhibit their artwork at the end of the event.',
   },
   {
     id: 'speakers-forum',
     title: "Vasant Valley Speakers' Forum",
-    body: 'An Inter School event for Middle School students to explore and share their critical and imaginative faculties through a variety of competitive and noncompetitive opportunities. This event is open to students from Classes 6 to 9 and is designed to enhance the literary and creative spirit of students through the following platforms: Book Discussion, Tall Tales, Oral Interpretation, Turncoat and Slam Poetry.',
+    body: 'An event for Middle School students featuring Book Discussions, Tall Tales, Oral Interpretation, Turncoat and Slam Poetry to nurture creativity and communication skills.',
   },
 ]
 
-// 12 programmes → 3 rows of 4 (2 per column), alternating section background
-const rows = [
-  { items: programmes.slice(0, 4), bg: 'var(--color-gold-light)' },
-  { items: programmes.slice(4, 8), bg: 'var(--color-white)' },
-  { items: programmes.slice(8, 12), bg: 'var(--color-gold-light)' },
-]
-
-function ProgrammeBlock({ programme }) {
+function ProgrammeCard({ programme }) {
   return (
-    <div>
-      <h3 className="heading-3" style={{ color: 'var(--color-ink)' }}>
+    <article
+      className="rounded-2xl bg-white border p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      style={{
+        borderColor: 'rgba(128,97,35,.12)',
+      }}
+    >
+      <h3
+        className="text-2xl font-semibold"
+        style={{ color: 'var(--color-maroon)' }}
+      >
         {programme.title}
       </h3>
-      <p className="body-m mt-3" style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}>
+
+      <div
+        className="mt-4 h-1 w-16 rounded-full"
+        style={{ backgroundColor: 'var(--color-gold)' }}
+      />
+
+      <p
+        className="mt-5 leading-8"
+        style={{
+          color: 'var(--color-ink-70, rgba(11,15,25,.72))',
+        }}
+      >
         {programme.body}
       </p>
-    </div>
+    </article>
   )
 }
 
@@ -89,6 +101,7 @@ export default function InterSchoolProgrammes() {
     <>
       <Helmet>
         <title>Inter-School Programmes | Vasant Valley School</title>
+
         <meta
           name="description"
           content="Drama Festival, debates, sports, Synapse, VVEAVES, Laissez Faire and other inter-school events that connect Vasant Valley School students with the wider world."
@@ -97,23 +110,50 @@ export default function InterSchoolProgrammes() {
 
       <InterSchoolHero />
 
-      {rows.map((row, i) => {
-        const [left1, left2, right1, right2] = row.items
-        return (
-          <section key={i} className="section-padding" style={{ backgroundColor: row.bg }}>
-            <div className="section-container grid md:grid-cols-2 gap-x-16 gap-y-10">
-              <div className="space-y-10">
-                <ProgrammeBlock programme={left1} />
-                <ProgrammeBlock programme={left2} />
-              </div>
-              <div className="space-y-10">
-                <ProgrammeBlock programme={right1} />
-                <ProgrammeBlock programme={right2} />
-              </div>
-            </div>
-          </section>
-        )
-      })}
+      <section
+        className="py-16 md:py-24"
+        style={{ backgroundColor: 'var(--color-gold-light)' }}
+      >
+        <div className="section-container">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2
+              className="heading-1"
+              style={{ color: 'var(--color-maroon)' }}
+            >
+              Our Inter-School Programmes
+            </h2>
+
+            <span className="gold-rule mx-auto mt-5" />
+
+            <p
+              className="body mt-6"
+              style={{
+                color: 'var(--color-ink-70)',
+              }}
+            >
+              Our programmes encourage students to collaborate, compete,
+              innovate and learn beyond the classroom through academics,
+              sports, performing arts, technology and leadership experiences.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="py-16 md:py-24"
+        style={{ backgroundColor: 'var(--color-white)' }}
+      >
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {programmes.map((programme) => (
+              <ProgrammeCard
+                key={programme.id}
+                programme={programme}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   )
 }

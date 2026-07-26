@@ -35,6 +35,16 @@ export default function CambridgePathway() {
   return (
     <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
       <div className="section-container">
+        {/* Responsive banner image */}
+        <div className="rounded-(--radius-img) overflow-hidden mb-12">
+          <img
+            src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            alt="Students in a Cambridge international curriculum setting"
+            className="w-full h-48 sm:h-64 md:h-80 object-cover"
+            loading="lazy"
+          />
+        </div>
+
         <div className="max-w-3xl mx-auto text-center">
           <p className="body-l" style={{ color: 'var(--color-ink)' }}>
             Class 8 serves as a foundation year, focusing on developing the

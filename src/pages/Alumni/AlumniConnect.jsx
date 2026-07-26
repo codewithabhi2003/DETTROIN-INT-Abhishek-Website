@@ -1,35 +1,45 @@
 import { Helmet } from 'react-helmet-async'
-import { PLACEHOLDER_PATTERN } from '@/constants/imagePlaceholder'
+import { ArrowRight } from 'lucide-react'
 import AlumniConnectHero from './AlumniConnectHero'
 
 const connectPrograms = [
   {
     id: 'career-connect',
     title: 'Career Connect',
-    body: 'The Alumni Association of Vasant Valley School partnered with Vasant Valley to conduct the first career fair in the month of August 2021. The fair entailed participation of various school alumni working in different fields across the globe. The erstwhile students of school spoke to the students of classes 11th and 12th about their experience with respect to their chosen fields and what to expect in that career path. The career fair conducted over two weekends of 7th and 8th of August and 11th and 14th of August ensured a comprehensive coverage of the common career paths chosen by students in the current times.',
+    body: 'The Alumni Association of Vasant Valley School partnered with the school to organise its first Career Fair in August 2021. Alumni from diverse professions across the world interacted with students of Classes XI and XII, sharing valuable insights into their careers, workplace experiences and future opportunities. Conducted over two weekends, the event introduced students to a broad range of career paths and industry perspectives.',
   },
   {
     id: 'college-connect',
     title: 'College Connect',
-    body: 'The Vasant Valley Alumni from various universities across the globe, spoke to the students of Classes 11 and 12 about the various career options available. Getting an insight into the application process, subject choices available and campus life was invaluable for the current students who were just beginning their applications.',
+    body: 'Alumni studying at leading universities across the globe interacted with students of Classes XI and XII, providing first-hand guidance on university applications, subject choices, campus life and student experiences. These sessions help students make informed decisions while preparing for higher education.',
   },
 ]
 
-function ProgramBlock({ item }) {
+function ProgramCard({ item }) {
   return (
-    <div>
-      <h3 className="heading-3" style={{ color: 'var(--color-gold)' }}>
+    <div className="rounded-(--radius-img) bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <h3
+        className="heading-3"
+        style={{ color: 'var(--color-maroon)' }}
+      >
         {item.title}
       </h3>
+
       <p
-        className="body-m mt-3"
-        style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}
+        className="body-m mt-5"
+        style={{ color: 'var(--color-ink-70)' }}
       >
-        {item.body}{' '}
-        <a href="#" style={{ color: 'var(--color-gold)' }}>
-          more
-        </a>
+        {item.body}
       </p>
+
+      <a
+        href="#"
+        className="inline-flex items-center gap-2 mt-6 font-medium"
+        style={{ color: 'var(--color-maroon)' }}
+      >
+        Learn More
+        <ArrowRight size={16} />
+      </a>
     </div>
   )
 }
@@ -39,86 +49,158 @@ export default function AlumniConnect() {
     <>
       <Helmet>
         <title>Alumni Connect | Vasant Valley School</title>
+
         <meta
           name="description"
-          content="Stay connected with the Vasant Valley School alumni community — career fairs, college guidance, batch reunions and exclusive alumni merchandise."
+          content="Stay connected with the Vasant Valley School alumni community through career guidance, college mentoring, reunions and alumni initiatives."
         />
       </Helmet>
 
       <AlumniConnectHero />
 
-      {/* Intro + merchandise callout */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-        <div className="section-container max-w-3xl mx-auto text-center">
-          <p className="body-l" style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}>
-            Since 1999, over 2000 students have graduated from the school and have found
-            their calling all over the world. Their school experience has created bonds
-            that have remained strong. Some of our Alumni have become parents and the
-            second generation is already a part of our student body.
-          </p>
+      {/* Introduction */}
 
-          <div
-            className="rounded-(--radius-img) mt-10 p-8"
-            style={{ backgroundColor: 'var(--color-gold-light)' }}
-          >
-            <p className="body-m" style={{ color: 'var(--color-ink)' }}>
-              Exclusive Vasant Valley Alumni merchandise curated by Mrinalini Tandon
-              (Class of 2000) is now available.
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-white)' }}
+      >
+        <div className="section-container max-w-6xl mx-auto">
+
+          <div className="max-w-4xl mx-auto text-center">
+            <h2
+              className="heading-1"
+              style={{ color: 'var(--color-maroon)' }}
+            >
+              A Lifelong Community
+            </h2>
+
+            <span className="gold-rule mx-auto mt-4" />
+
+            <p
+              className="body-m mt-8"
+              style={{ color: 'var(--color-ink-70)' }}
+            >
+              Since 1999, more than 2,000 students have graduated from
+              Vasant Valley School and have built successful careers across
+              the world. Their connection with the school remains strong,
+              creating a vibrant alumni community that continues to mentor,
+              inspire and support future generations.
             </p>
+          </div>
+
+          {/* Merchandise */}
+
+          <div className="rounded-(--radius-img) bg-gold-light p-10 text-center mt-14">
+            <h3
+              className="heading-3"
+              style={{ color: 'var(--color-maroon)' }}
+            >
+              Alumni Merchandise
+            </h3>
+
+            <p
+              className="body-m mt-5 max-w-2xl mx-auto"
+              style={{ color: 'var(--color-ink-70)' }}
+            >
+              Exclusive Vasant Valley Alumni merchandise curated by
+              <strong> Mrinalini Tandon (Class of 2000)</strong> is now
+              available for alumni worldwide.
+            </p>
+
             <a
               href="#"
-              className="btn-primary mt-4 inline-flex w-fit"
+              className="btn-primary mt-8 inline-flex"
             >
-              Visit the online store
+              Visit the Online Store
             </a>
           </div>
+
         </div>
       </section>
 
-      {/* Career Connect / College Connect */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-gold-light)' }}>
-        <div className="section-container grid md:grid-cols-2 gap-x-16 gap-y-10">
-          {connectPrograms.map((item) => (
-            <ProgramBlock key={item.id} item={item} />
-          ))}
+      {/* Career & College */}
+
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-gold-light)' }}
+      >
+        <div className="section-container max-w-6xl mx-auto">
+
+          <div className="text-center mb-14">
+            <h2
+              className="heading-2"
+              style={{ color: 'var(--color-maroon)' }}
+            >
+              Alumni Initiatives
+            </h2>
+
+            <span className="gold-rule mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {connectPrograms.map((item) => (
+              <ProgramCard
+                key={item.id}
+                item={item}
+              />
+            ))}
+          </div>
+
         </div>
       </section>
 
       {/* Batch Connect */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-        <div className="section-container grid md:grid-cols-2 gap-12 items-center">
-          <div
-            className="relative h-64 md:h-80 w-full rounded-(--radius-img)"
-            style={PLACEHOLDER_PATTERN}
-            role="img"
-            aria-label="Screenshot of alumni batch reunion video call grid"
-          >
-            <div className="absolute inset-0 flex items-start justify-end p-4">
-              <span
-                className="text-micro font-medium tracking-wide"
-                style={{ color: 'var(--color-ink-40)' }}
-              >
-                IMAGE — Batch reunion video call
-              </span>
+
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-white)' }}
+      >
+        <div className="section-container max-w-6xl mx-auto">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            <div className="overflow-hidden rounded-(--radius-img) shadow-lg aspect-4/3">
+              <img
+                src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Alumni reconnecting during an online reunion"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
             </div>
-          </div>
-          <div>
-            <h3 className="heading-3" style={{ color: 'var(--color-gold)' }}>
-              Batch Connect
-            </h3>
-            <p
-              className="body-m mt-3"
-              style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}
-            >
-              The batch connect initiative by Vasant Valley School aims to renew bonds
-              of yesteryear by bringing together Vasant Valley family from all over the
-              world. The evenings of the virtual reunions are full of nostalgia and lots
-              of laughter as the memories come flooding back...{' '}
-              <a href="#" style={{ color: 'var(--color-gold)' }}>
-                more
+
+            <div>
+              <h2
+                className="heading-2"
+                style={{ color: 'var(--color-maroon)' }}
+              >
+                Batch Connect
+              </h2>
+
+              <span className="gold-rule mt-4" />
+
+              <p
+                className="body-m mt-6"
+                style={{ color: 'var(--color-ink-70)' }}
+              >
+                The Batch Connect initiative brings together alumni from
+                across the globe, rekindling friendships and celebrating
+                shared memories. These reunions strengthen the lifelong
+                bond between former students and the school while creating
+                opportunities to reconnect, collaborate and inspire future
+                generations.
+              </p>
+
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 mt-8 font-medium"
+                style={{ color: 'var(--color-maroon)' }}
+              >
+                Read More
+                <ArrowRight size={16} />
               </a>
-            </p>
+            </div>
+
           </div>
+
         </div>
       </section>
     </>

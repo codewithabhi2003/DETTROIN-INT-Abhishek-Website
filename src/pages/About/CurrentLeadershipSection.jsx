@@ -3,13 +3,33 @@ import PersonCard from '@/components/cards/PersonCard'
 const principal = {
   name: 'Sharmila Bakshi',
   role: 'Principal',
+  image:
+    'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400',
   imageAlt: 'Portrait of Sharmila Bakshi',
 }
 
 const team = [
-  { name: 'Vijay Trivedi', role: 'Head of Senior School', imageAlt: 'Portrait of Vijay Trivedi' },
-  { name: 'Mona Datta', role: 'Head of Junior School', imageAlt: 'Portrait of Mona Datta' },
-  { name: 'A. P. John', role: 'Administrative Head', imageAlt: 'Portrait of A. P. John' },
+  {
+    name: 'Vijay Trivedi',
+    role: 'Head of Senior School',
+    image:
+      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageAlt: 'Portrait of Vijay Trivedi',
+  },
+  {
+    name: 'Mona Datta',
+    role: 'Head of Junior School',
+    image:
+      'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageAlt: 'Portrait of Mona Datta',
+  },
+  {
+    name: 'A. P. John',
+    role: 'Administrative Head',
+    image:
+      'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageAlt: 'Portrait of A. P. John',
+  },
 ]
 
 export default function CurrentLeadershipSection() {

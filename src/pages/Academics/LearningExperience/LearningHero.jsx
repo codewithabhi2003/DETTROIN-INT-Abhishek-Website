@@ -1,37 +1,58 @@
-import { PLACEHOLDER_PATTERN } from '@/constants/imagePlaceholder'
-
 export default function LearningHero() {
   return (
-    <section aria-label="Learning experience" className="relative">
-      {/* IMAGE SLOT — replace with real photography (1920×900 min) */}
-      <div
-        className="relative h-80 md:h-120 w-full"
-        style={PLACEHOLDER_PATTERN}
-        role="img"
-        aria-label="Students in the courtyard beneath hanging artwork panels"
-      >
-        <div className="absolute inset-0 flex items-start justify-end p-4">
-          <span className="text-micro font-medium tracking-wide" style={{ color: 'var(--color-ink-40)' }}>
-            IMAGE — Courtyard, student artwork panels
-          </span>
+    <section aria-label="Learning experience">
+      {/* Hero Image */}
+      <div className="relative h-90 md:h-120 lg:h-160 overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          alt="Students learning together in a school environment"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/35" />
+
+        {/* Hero Content */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="max-w-4xl px-6 text-center">
+            <h1 className="heading-1 text-white">
+              The Learning Experience
+            </h1>
+
+            <span className="gold-rule mx-auto mt-5" />
+
+            <p className="body-l text-white/95 mt-8">
+              The learning experience is focused on nurturing leadership,
+              curiosity and self-discipline while supporting the holistic
+              development of every child.
+            </p>
+          </div>
         </div>
       </div>
 
+      {/* Introduction */}
       <div className="section-container">
-        <div className="max-w-2xl mx-auto text-center pt-14 pb-10 md:pt-20 md:pb-14">
+        <div className="max-w-3xl mx-auto text-center py-16 md:py-20">
           <p
             className="heading-2"
             style={{ color: 'var(--color-teal, #2f6f7a)' }}
           >
-            The learning experience is focused on nurturing qualities such as
-            leadership and self-discipline, aiming towards the holistic
-            development of each child.
+            Every student is encouraged to discover their strengths,
+            challenge themselves and become a confident, compassionate and
+            lifelong learner.
           </p>
-          <span className="gold-rule mx-auto" />
-          <p className="body-m mt-5" style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}>
-            The School environment in Vasant Valley encourages each student
-            and teacher to exceed their own expectations and to push the
-            boundaries of their understanding and beliefs.
+
+          <span className="gold-rule mx-auto mt-5" />
+
+          <p
+            className="body-m mt-8"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            At Vasant Valley School, the learning environment inspires
+            students and teachers alike to exceed expectations, think
+            critically, embrace creativity and continuously expand their
+            understanding of the world around them.
           </p>
         </div>
       </div>

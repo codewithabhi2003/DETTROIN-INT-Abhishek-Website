@@ -7,32 +7,73 @@ const cycles = [
 
 export default function LearningCycles() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-      <div className="section-container">
-        <p className="body-l max-w-2xl mx-auto text-center" style={{ color: 'var(--color-ink)' }}>
-          From April to March of the following year, each academic year is
-          divided into four Learning Cycles.
-        </p>
+    <section
+      className="section-padding"
+      style={{ backgroundColor: 'var(--color-white)' }}
+    >
+      <div className="section-container max-w-6xl mx-auto">
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center">
+          <h2
+            className="heading-1"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            Learning Cycles
+          </h2>
+
+          <span className="gold-rule mx-auto mt-4" />
+
+          <p
+            className="body-m mt-6"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            The academic year, from April to March, is divided into four
+            Learning Cycles. Each cycle provides students with focused
+            learning goals, regular assessments and opportunities for
+            reflection and continuous growth.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 mt-14">
           {cycles.map((cycle) => (
             <div
               key={cycle.number}
-              className="rounded-(--radius-img) p-5"
-              style={{ backgroundColor: 'var(--color-gold-light)' }}
+              className="rounded-(--radius-img)] bg-gold-light p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
             >
               <div className="flex items-start justify-between">
-                <span className="text-micro font-medium uppercase tracking-wide" style={{ color: 'var(--color-gold-dark, var(--color-gold))' }}>
+                <span
+                  className="text-xs font-semibold uppercase tracking-[0.2em]"
+                  style={{ color: 'var(--color-gold-dark)' }}
+                >
                   Learning Cycle
                 </span>
-                <span className="display-l leading-none" style={{ color: 'var(--color-ink-20, rgba(11,15,25,0.2))' }}>
+
+                <span
+                  className="text-6xl font-bold leading-none"
+                  style={{ color: 'rgba(11,15,25,.12)' }}
+                >
                   {cycle.number}
                 </span>
               </div>
-              <span className="gold-rule" style={{ marginTop: '0.75rem' }} />
-              <ul className="mt-3 space-y-1">
+
+              <span className="gold-rule mt-5" />
+
+              <ul className="mt-6 space-y-3">
                 {cycle.months.map((month) => (
-                  <li key={month} className="body-m" style={{ color: 'var(--color-ink)' }}>
+                  <li
+                    key={month}
+                    className="body-m flex items-center gap-3"
+                    style={{ color: 'var(--color-ink)' }}
+                  >
+                    <span
+                      className="w-2 h-2 rounded-full"
+                      style={{
+                        backgroundColor: 'var(--color-maroon)',
+                      }}
+                    />
+
                     {month}
                   </li>
                 ))}
@@ -40,6 +81,7 @@ export default function LearningCycles() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   )

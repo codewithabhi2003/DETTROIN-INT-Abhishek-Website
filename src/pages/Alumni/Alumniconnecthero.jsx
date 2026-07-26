@@ -1,40 +1,68 @@
-import { PLACEHOLDER_PATTERN } from '@/constants/imagePlaceholder'
-
 export default function AlumniConnectHero() {
   return (
-    <section aria-label="Alumni Connect hero" className="relative">
-      <div
-        className="relative h-80 md:h-120 w-full"
-        style={PLACEHOLDER_PATTERN}
-        role="img"
-        aria-label="Collage of alumni photos from past reunions and gatherings"
-      >
-        <div className="absolute inset-0 flex items-start justify-end p-4">
-          <span
-            className="text-micro font-medium tracking-wide"
-            style={{ color: 'var(--color-ink-40)' }}
-          >
-            IMAGE — Alumni reunion photo collage
-          </span>
+    <section aria-label="Alumni Connect Hero">
+      {/* Hero Image */}
+      <div className="relative h-90 md:h-120 lg:h-160 overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          alt="Vasant Valley School alumni reconnecting during a gathering"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/45" />
+
+        {/* Hero Content */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="max-w-4xl px-6 text-center">
+            <span className="badge badge-gold mx-auto mb-6">
+              Since 1999
+            </span>
+
+            <h1 className="heading-1 text-white">
+              Alumni Connect
+            </h1>
+
+            <span className="gold-rule mx-auto mt-5" />
+
+            <p className="body-l text-white/90 mt-8 max-w-2xl mx-auto">
+              A lifelong community of Vasant Valley graduates inspiring,
+              mentoring and supporting one another across the world.
+            </p>
+          </div>
         </div>
       </div>
+
+      {/* Intro */}
       <div className="section-container">
-        <div className="max-w-2xl mx-auto text-center pt-14 pb-10 md:pt-20 md:pb-14">
-          <span className="badge badge-gold w-fit mx-auto mb-4">Since 1999</span>
-          <h1 className="heading-1">Alumni Connect</h1>
-          <span className="gold-rule mx-auto" />
+        <div className="max-w-3xl mx-auto text-center py-16 md:py-20">
           <p
-            className="body-m mt-5"
-            style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}
+            className="heading-2"
+            style={{ color: 'var(--color-maroon)' }}
           >
-            Watch this space for alumni updates. Contact us at{' '}
-            <a
-              href="mailto:alumni@vasantvalley.edu.in"
-              style={{ color: 'var(--color-gold)' }}
-            >
-              alumni@vasantvalley.edu.in
-            </a>
+            Stay Connected with Your School Family
           </p>
+
+          <span className="gold-rule mx-auto mt-5" />
+
+          <p
+            className="body-m mt-8"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            Discover alumni stories, reunions, mentoring opportunities and
+            school updates. Whether you're a recent graduate or part of one of
+            our earliest batches, you're always a valued member of the Vasant
+            Valley family.
+          </p>
+
+          <a
+            href="mailto:alumni@vasantvalley.edu.in"
+            className="inline-flex mt-8 font-semibold hover:underline"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            alumni@vasantvalley.edu.in
+          </a>
         </div>
       </div>
     </section>

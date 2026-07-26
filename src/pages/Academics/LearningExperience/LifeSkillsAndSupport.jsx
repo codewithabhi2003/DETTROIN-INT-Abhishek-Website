@@ -1,51 +1,101 @@
 export default function LifeSkillsAndSupport() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-      <div className="section-container grid md:grid-cols-2 gap-12">
-        <div>
-          <h2 className="heading-1">Learning to build Life Skills</h2>
-          <span className="gold-rule" />
-          <div className="body-m space-y-4 mt-5" style={{ color: 'var(--color-ink)' }}>
-            <p>
-              Creative thinking is the core of the Vasant Valley School
-              curriculum. It enables children to develop and express their
-              ideas in new ways and fosters a strong connection between
-              rationality and imagination. The Art Programme is offered
-              through a variety of Performing Arts and Visual Arts and
-              provides students an opportunity to engage in creative
-              collaboration, exchange and express ideas.
-            </p>
-            <p>
-              The core components in the area of physical development
-              focuses on the overall health of all students. The focus is on
-              physical and mental health, hygiene and nutrition which
-              equips students to take ownership of their wellbeing.
-            </p>
-          </div>
+    <section
+      className="section-padding"
+      style={{ backgroundColor: 'var(--color-white)' }}
+    >
+      <div className="section-container max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="max-w-3xl mb-14">
+          <h2
+            className="heading-1"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            Learning to Build Life Skills
+          </h2>
+
+          <span className="gold-rule mt-4" />
+
+          <p
+            className="body-m mt-6"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            Beyond academics, students develop creativity, resilience,
+            confidence and essential life skills through arts, physical
+            education and an inclusive learning environment that nurtures
+            every learner's potential.
+          </p>
         </div>
 
-        <div className="md:pt-16">
-          <div className="body-m space-y-4" style={{ color: 'var(--color-ink)' }}>
-            <p>
-              The School has consistently been committed to providing
-              multi-disciplinary support for students with special needs.
-              The entire campus is accessible and challenge compliant.
-              Children with special needs are included in the general
-              education classroom, closest to their chronological age and
-              learn with the support of trained special education teachers.
-              Each child has an Individual Education Plan, and the curriculum
-              is adapted to the skill level and needs of the student. The
-              curriculum is individualized in every aspect, both academic
-              and non-academic.
-            </p>
-            <p>
-              The School has a state-of-the-art Occupational Therapy
-              facility for occupational therapy, physiotherapy and sensory
-              integration therapy by trained professionals. Language therapy
-              and remediation for Dyslexia and Specific Learning
-              Difficulties are included in the programme.
-            </p>
+        {/* Content Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+
+          {/* Life Skills */}
+          <div
+            className="rounded-(--radius-img)] bg-gold-light p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <h3
+              className="heading-3"
+              style={{ color: 'var(--color-maroon)' }}
+            >
+              Creative Learning & Well-being
+            </h3>
+
+            <div
+              className="body-m mt-6 space-y-5"
+              style={{ color: 'var(--color-ink-70)' }}
+            >
+              <p>
+                Creative thinking forms the foundation of the Vasant Valley
+                School curriculum. Students are encouraged to explore new
+                ideas, think independently and connect imagination with
+                rational inquiry through a rich programme of Performing Arts
+                and Visual Arts.
+              </p>
+
+              <p>
+                Physical development is equally important, with programmes
+                that promote fitness, mental well-being, hygiene and
+                nutrition. Students are encouraged to develop lifelong
+                healthy habits while taking responsibility for their own
+                well-being.
+              </p>
+            </div>
           </div>
+
+          {/* Student Support */}
+          <div
+            className="rounded-(--radius-img)] bg-gold-light p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <h3
+              className="heading-3"
+              style={{ color: 'var(--color-maroon)' }}
+            >
+              Inclusive Learning Support
+            </h3>
+
+            <div
+              className="body-m mt-6 space-y-5"
+              style={{ color: 'var(--color-ink-70)' }}
+            >
+              <p>
+                The school is committed to providing multidisciplinary
+                support for students with diverse learning needs. An
+                accessible campus, trained special educators and
+                Individualised Education Plans ensure every child receives
+                personalised academic and developmental support.
+              </p>
+
+              <p>
+                State-of-the-art facilities for occupational therapy,
+                physiotherapy, sensory integration, language therapy and
+                specialised support for Dyslexia and Specific Learning
+                Difficulties enable students to thrive in an inclusive and
+                nurturing environment.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

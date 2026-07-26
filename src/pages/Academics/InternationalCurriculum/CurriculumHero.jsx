@@ -1,31 +1,44 @@
-import { PLACEHOLDER_PATTERN } from '@/constants/imagePlaceholder'
-
 export default function CurriculumHero() {
   return (
     <section aria-label="International Curriculum" className="relative">
-      {/* IMAGE SLOT — replace with real photography (1920×900 min) */}
-      <div
-        className="relative h-80 md:h-120 w-full"
-        style={PLACEHOLDER_PATTERN}
-        role="img"
-        aria-label="Students in front of the #VasantValleySchool installation"
-      >
-        <div className="absolute inset-0 flex items-start justify-end p-4">
-          <span className="text-micro font-medium tracking-wide" style={{ color: 'var(--color-ink-40)' }}>
-            IMAGE — #VasantValleySchool installation
-          </span>
-        </div>
-      </div>
+      {/* Hero Image */}
+      <div className="relative h-[50vh] min-h-90 md:h-[65vh] lg:h-[75vh] w-full overflow-hidden">
+       <img
+  src="https://images.pexels.com/photos/8471984/pexels-photo-8471984.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  alt="Students in a modern international school"
+  className="absolute inset-0 w-full h-full object-cover object-center"
+  loading="eager"
+/>
 
-      <div className="section-container">
-        <div className="max-w-2xl mx-auto text-center pt-14 pb-10 md:pt-20 md:pb-14">
-          <span className="badge badge-gold w-fit mx-auto mb-4">Cambridge International School</span>
-          <h1 className="heading-1">International Curriculum</h1>
-          <span className="gold-rule mx-auto" />
-          <p className="body-m mt-5" style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}>
-            Vasant Valley School is a registered Cambridge International
-            School offering the Cambridge curriculum for Classes 8–12.
-          </p>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Content */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="section-container text-center max-w-3xl">
+            <span className="badge badge-gold mx-auto mb-5">
+              Cambridge International School
+            </span>
+
+            <h1
+              className="display-lg md:display-xl"
+              style={{ color: "var(--color-white)" }}
+            >
+              International Curriculum
+            </h1>
+
+            <span className="gold-rule mx-auto mt-5" />
+
+            <p
+              className="body-l mt-6 max-w-2xl mx-auto"
+              style={{ color: "rgba(255,255,255,0.92)" }}
+            >
+              Vasant Valley School is a registered Cambridge International
+              School offering the Cambridge curriculum for Classes 8–12,
+              preparing students with globally recognized academic standards
+              and future-ready skills.
+            </p>
+          </div>
         </div>
       </div>
     </section>

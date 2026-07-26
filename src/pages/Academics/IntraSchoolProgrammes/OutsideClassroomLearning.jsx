@@ -9,44 +9,66 @@ const items = [
   {
     id: 'annual-school-camps',
     title: 'Annual School Camps',
-    body: 'The one experience that is forever etched in the mind of our students is the Annual School Camp. The children of Class 2 spend a night in school in the company of their friends and teachers. For higher classes, they embark on a short trip to the foothills of the mountains, river valleys and national parks. These Camps enable children to create a special bond with nature and develop new ties with peers and teachers. Safety and security are of prime importance and great care is taken in identifying appropriate camp sites.',
+    body: 'The one experience that is forever etched in the minds of our students is the Annual School Camp. Class 2 students spend a night at school with their teachers and friends, while older students travel to the foothills, river valleys and national parks. These camps foster independence, teamwork, environmental awareness and lasting friendships while ensuring the highest standards of safety.',
   },
   {
     id: 'science-fair',
     title: 'Science Fair',
-    body: 'The Science Fair provides a platform to cultivate a scientific attitude in a festive atmosphere, where groups of students are engaged in conducting experiments, creating models and demonstrating their learning in practical ways. A focus on scientific fundamentals like the spirit of curiosity, enquiry and innovation as well as life skills like collaboration, decision-making and communication are significant outcomes.',
+    body: 'The Science Fair provides a platform to cultivate scientific thinking through experiments, models and practical demonstrations. Students strengthen curiosity, inquiry, innovation, collaboration, decision-making and communication skills.',
   },
   {
     id: 'talks-seminars',
     title: 'Talks and Seminars',
-    body: 'A regular feature at Vasant Valley School is visits by eminent personalities. Interacting with inspirational leaders fosters motivation and awareness among our students. These leaders are individuals who have gained recognition in their field for their creativity, hard work and commitment.',
+    body: 'Regular interactions with distinguished personalities expose students to diverse perspectives and inspire them through stories of creativity, leadership, perseverance and excellence.',
   },
   {
     id: 'exchange-programmes',
     title: 'Exchange Programmes',
-    body: 'The School engages in several exchange programmes with schools such as Grace Church School, New York; Kulosaari Academy, Helsinki and the Government Middle School, Jhanjraula, Haryana. Through these programmes, the students get exposure to different cultures, new environments and ideas, and teaching methodology. It gives the children an opportunity in collaborative and interactive learning.',
+    body: 'The school partners with institutions such as Grace Church School (New York), Kulosaari Academy (Helsinki) and Government Middle School (Jhanjraula, Haryana). These exchanges promote cultural understanding, collaborative learning and global perspectives.',
   },
   {
     id: 'college-career-counselling',
     title: 'College and Career Counselling',
     body: [
-      'The College and Career Counselling team prepares the students of classes 9, 10, 11 and 12 for a smooth transition from school to the University/College of their choice. Individual counselling sessions and standardised assessment and aptitude tests help the students to make appropriate subject choices for classes 11 and 12. Interactions and discussions with senior students and alumni are useful in identifying their interests and affinities.',
-      'The college counselling team uses its in-depth knowledge of colleges and universities, both within India and abroad, to help children identify suitable universities and guides them through the application process. We support them in identifying colleges best suited to them, organising letters of recommendation and essays. Visits of representatives from various universities in India and abroad give the children a detailed understanding of programmes and facilities. The school also organizes College and Career fairs on campus, to help students make informed subject and career choices.',
+      'The College and Career Counselling team supports students from Classes 9 to 12 through aptitude assessments, individual counselling sessions and subject selection guidance to help them prepare for higher education.',
+      'Students receive expert assistance throughout the university application process, including college selection, recommendation letters, essays and interactions with university representatives. Career fairs and alumni interactions further help students make informed academic and professional choices.',
     ],
   },
 ]
 
 export default function OutsideClassroomLearning() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-      <div className="section-container">
-        <h2 className="heading-1">Outside Classroom Learning</h2>
-        <span className="gold-rule" />
-        <p className="body-m mt-5 max-w-2xl" style={{ color: 'var(--color-ink)' }}>
-          Outside Classroom Learning offers a range of enriching experiences
-          and opportunities.
-        </p>
-        <ProgrammeAccordion items={items} />
+    <section
+      className="section-padding"
+      style={{ backgroundColor: 'var(--color-white)' }}
+    >
+      <div className="section-container max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="max-w-3xl">
+          <h2
+            className="heading-1"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            Outside Classroom Learning
+          </h2>
+
+          <span className="gold-rule mt-4" />
+
+          <p
+            className="body-m mt-6"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            Learning extends beyond the classroom through immersive experiences
+            that inspire curiosity, leadership, environmental awareness,
+            scientific inquiry and global perspectives, helping students grow
+            into confident and responsible individuals.
+          </p>
+        </div>
+
+        {/* Accordion */}
+        <div className="mt-10 md:mt-12">
+          <ProgrammeAccordion items={items} />
+        </div>
       </div>
     </section>
   )

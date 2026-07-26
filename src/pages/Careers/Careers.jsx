@@ -1,30 +1,37 @@
 import { Helmet } from 'react-helmet-async'
-import { BookOpen, Users, HeartHandshake, TrendingUp } from 'lucide-react'
+import {
+  BookOpen,
+  Users,
+  HeartHandshake,
+  TrendingUp,
+  Briefcase,
+  Mail,
+} from 'lucide-react'
 
 const whyWorkWithUs = [
   {
     id: 'growth',
     icon: TrendingUp,
     title: 'Professional Growth',
-    body: 'Access to ongoing training, mentorship and leadership development through CEE@VVS, alongside opportunities to grow within the school.',
+    body: 'Access ongoing professional development, mentorship programmes and leadership opportunities through CEE@VVS, while continuously refining your teaching practice.',
   },
   {
     id: 'culture',
     icon: Users,
-    title: 'A Collaborative Culture',
-    body: 'Work alongside experienced educators in a school known for its strong, supportive community of teachers, staff and leadership.',
+    title: 'Collaborative Culture',
+    body: 'Join a vibrant community of educators who believe in teamwork, innovation and lifelong learning, supported by experienced mentors and school leadership.',
   },
   {
     id: 'student-centred',
     icon: HeartHandshake,
-    title: 'Student-Centred Ethos',
-    body: "Be part of a school where every decision is grounded in the holistic development and well-being of the child, in line with our motto, 'Excellence in Deed'.",
+    title: 'Student-Centred Philosophy',
+    body: "Every decision at Vasant Valley School is guided by the holistic development of every child and our guiding principle of 'Excellence in Deed'.",
   },
   {
     id: 'learning',
     icon: BookOpen,
-    title: 'A Culture of Learning',
-    body: 'Join a school that treats teaching as a craft worth refining, with space to reflect, question and re-imagine practice throughout your career.',
+    title: 'A Learning Community',
+    body: 'Teaching is viewed as a craft that evolves through reflection, collaboration and curiosity, encouraging educators to innovate and inspire every day.',
   },
 ]
 
@@ -33,104 +40,260 @@ export default function Careers() {
     <>
       <Helmet>
         <title>Careers | Vasant Valley School</title>
+
         <meta
           name="description"
-          content="Explore careers at Vasant Valley School — teaching, leadership and support roles in a collaborative, student-centred community."
+          content="Join Vasant Valley School and build a meaningful career in education within a collaborative, innovative and student-centred learning community."
         />
       </Helmet>
 
-      {/* Intro */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-        <div className="section-container max-w-3xl mx-auto text-center">
-          <span className="badge badge-gold w-fit mx-auto mb-4">Join Us</span>
-          <h1 className="heading-1">Careers at Vasant Valley School</h1>
-          <span className="gold-rule mx-auto" />
-          <p
-            className="body-l mt-5"
-            style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}
-          >
-            We are always looking for passionate educators and staff who share our
-            commitment to thoughtful pedagogy and the holistic development of every
-            child in our care.
-          </p>
+      {/* Hero */}
+
+      <section className="relative h-90 md:h-120 lg:h-160 overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/5212703/pexels-photo-5212703.jpeg?auto=compress&cs=tinysrgb&w=1800"
+          alt="Teachers collaborating in a modern school"
+          className="w-full h-full object-cover"
+        />
+
+        <div className="absolute inset-0 bg-black/45" />
+
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="max-w-4xl px-6 text-center">
+            <span className="badge badge-gold mx-auto mb-6">
+              Join Our Team
+            </span>
+
+            <h1 className="heading-1 text-white">
+              Careers at Vasant Valley School
+            </h1>
+
+            <span className="gold-rule mx-auto mt-5" />
+
+            <p className="body-l text-white/90 mt-8 max-w-3xl mx-auto">
+              Inspire young minds, collaborate with passionate educators and
+              become part of a school community committed to excellence,
+              innovation and lifelong learning.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Why work with us */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-gold-light)' }}>
-        <div className="section-container">
-          <h2 className="heading-1" style={{ color: 'var(--color-gold)' }}>
-            Why Work With Us
+      {/* Intro */}
+
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-white)' }}
+      >
+        <div className="section-container max-w-4xl mx-auto text-center">
+
+          <h2
+            className="heading-2"
+            style={{ color: 'var(--color-maroon)' }}
+          >
+            Build a Meaningful Career
           </h2>
-          <span className="gold-rule mt-2" />
-          <div className="grid sm:grid-cols-2 gap-x-16 gap-y-10 mt-8">
+
+          <span className="gold-rule mx-auto mt-4" />
+
+          <p
+            className="body-m mt-8"
+            style={{ color: 'var(--color-ink-70)' }}
+          >
+            We welcome passionate educators and professionals who share our
+            commitment to academic excellence, innovation and the holistic
+            development of every child. At Vasant Valley School, every team
+            member contributes to creating a nurturing and inspiring learning
+            environment.
+          </p>
+
+        </div>
+      </section>
+
+      {/* Why Work With Us */}
+
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-gold-light)' }}
+      >
+        <div className="section-container max-w-6xl mx-auto">
+
+          <div className="text-center">
+            <h2
+              className="heading-2"
+              style={{ color: 'var(--color-maroon)' }}
+            >
+              Why Work With Us
+            </h2>
+
+            <span className="gold-rule mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14">
+
             {whyWorkWithUs.map((item) => {
               const Icon = item.icon
+
               return (
-                <div key={item.id}>
-                  <Icon size={28} color="var(--color-gold)" aria-hidden="true" />
-                  <h3 className="heading-3 mt-4" style={{ color: 'var(--color-ink)' }}>
+                <div
+                  key={item.id}
+                  className="rounded-(--radius-img) bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div
+                    className="w-16 h-16 rounded-full flex items-center justify-center"
+                    style={{
+                      backgroundColor: 'rgba(128,97,35,.12)',
+                    }}
+                  >
+                    <Icon
+                      size={30}
+                      style={{
+                        color: 'var(--color-maroon)',
+                      }}
+                    />
+                  </div>
+
+                  <h3
+                    className="heading-3 mt-6"
+                    style={{
+                      color: 'var(--color-maroon)',
+                    }}
+                  >
                     {item.title}
                   </h3>
+
                   <p
-                    className="body-m mt-3"
-                    style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}
+                    className="body-m mt-5"
+                    style={{
+                      color: 'var(--color-ink-70)',
+                    }}
                   >
                     {item.body}
                   </p>
                 </div>
               )
             })}
+
           </div>
+
         </div>
       </section>
 
-      {/* Current openings */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-white)' }}>
-        <div className="section-container max-w-3xl mx-auto">
-          <h2 className="heading-1" style={{ color: 'var(--color-gold)' }}>
-            Current Openings
-          </h2>
-          <span className="gold-rule mt-2" />
-          <div
-            className="rounded-(--radius-img) mt-8 p-8 text-center"
-            style={{ backgroundColor: 'var(--color-gold-light)' }}
-          >
-            <p className="body-m" style={{ color: 'var(--color-ink)' }}>
-              There are no open positions listed at the moment.
-            </p>
-            <p
-              className="text-small mt-2"
-              style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}
+      {/* Current Openings */}
+
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-white)' }}
+      >
+        <div className="section-container max-w-5xl mx-auto">
+
+          <div className="rounded-(--radius-img) bg-gold-light p-10 md:p-12 text-center">
+
+            <div
+              className="w-18 h-18 rounded-full mx-auto flex items-center justify-center"
+              style={{
+                backgroundColor: 'rgba(128,97,35,.12)',
+              }}
             >
-              Please check back for updates, or send us your resume below for future
-              opportunities.
+              <Briefcase
+                size={34}
+                style={{
+                  color: 'var(--color-maroon)',
+                }}
+              />
+            </div>
+
+            <h2
+              className="heading-2 mt-6"
+              style={{ color: 'var(--color-maroon)' }}
+            >
+              Current Openings
+            </h2>
+
+            <span className="gold-rule mx-auto mt-4" />
+
+            <p
+              className="body-m mt-8"
+              style={{ color: 'var(--color-ink-70)' }}
+            >
+              There are no vacancies available at the moment.
             </p>
-            <p className="text-micro mt-4" style={{ color: 'var(--color-ink-40)' }}>
-              PLACEHOLDER — live openings list to be added
+
+            <p
+              className="body-m mt-4"
+              style={{ color: 'var(--color-ink-70)' }}
+            >
+              We encourage interested candidates to share their profile for
+              future opportunities. Suitable applicants will be contacted
+              whenever relevant positions become available.
             </p>
+
           </div>
+
         </div>
       </section>
 
-      {/* How to apply */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-gold-light)' }}>
-        <div className="section-container max-w-2xl mx-auto text-center">
-          <h2 className="heading-1" style={{ color: 'var(--color-gold)' }}>
-            How to Apply
-          </h2>
-          <span className="gold-rule mx-auto mt-2" />
-          <p
-            className="body-m mt-4"
-            style={{ color: 'var(--color-ink-70, rgba(11,15,25,0.7))' }}
-          >
-            Interested candidates can send their resume and a cover letter to the school
-            office. Our team will get in touch if your profile matches a current or
-            upcoming opening.
-          </p>
-          <p className="text-micro mt-4" style={{ color: 'var(--color-ink-40)' }}>
-            PLACEHOLDER — careers email / application form link to be added
-          </p>
+      {/* Apply */}
+
+      <section
+        className="section-padding"
+        style={{ backgroundColor: 'var(--color-gold-light)' }}
+      >
+        <div className="section-container max-w-4xl mx-auto">
+
+          <div className="rounded-(--radius-img) bg-white p-10 md:p-12 text-center shadow-sm">
+
+            <div
+              className="w-18 h-18 rounded-full mx-auto flex items-center justify-center"
+              style={{
+                backgroundColor: 'rgba(128,97,35,.12)',
+              }}
+            >
+              <Mail
+                size={34}
+                style={{
+                  color: 'var(--color-maroon)',
+                }}
+              />
+            </div>
+
+            <h2
+              className="heading-2 mt-6"
+              style={{ color: 'var(--color-maroon)' }}
+            >
+              How to Apply
+            </h2>
+
+            <span className="gold-rule mx-auto mt-4" />
+
+            <p
+              className="body-m mt-8"
+              style={{ color: 'var(--color-ink-70)' }}
+            >
+              Interested candidates may submit their résumé along with a
+              cover letter to the school office. Applications are carefully
+              reviewed and shortlisted candidates will be contacted for
+              current or upcoming opportunities.
+            </p>
+
+            <a
+              href="mailto:careers@vasantvalley.edu.in"
+              className="btn-primary mt-10 inline-flex items-center gap-2"
+            >
+              <Mail size={18} />
+              careers@vasantvalley.edu.in
+            </a>
+
+            <p
+              className="text-small mt-6"
+              style={{ color: 'var(--color-ink-40)' }}
+            >
+              Replace the email above with the official recruitment email if
+              different.
+            </p>
+
+          </div>
+
         </div>
       </section>
     </>
