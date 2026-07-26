@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/check-import-case.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+    
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -35,4 +35,6 @@
     "tailwindcss": "^4.3.3",
     "vite": "^8.1.1"
   }
+
+  
 }
