@@ -6,7 +6,7 @@ const slides = [
     eyebrow: 'Science Fest',
     title: 'Synapse 2026',
     body: 'Students showcase innovation, teamwork and scientific thinking through exciting challenges and collaborative events.',
-    cta: { label: 'View gallery', to: '/campus/gallery' },
+    cta: { label: 'About us', to: '/about' },
     image:
       'https://static.vasantvalley.org/wp-content/uploads/2026/07/25095948/synapse_2026_7.jpeg',
     imageAlt: 'Students participating in Synapse 2026',
@@ -15,7 +15,7 @@ const slides = [
     eyebrow: 'Innovation & Discovery',
     title: 'Learning Beyond the Classroom',
     body: 'Hands-on experiences encourage curiosity, creativity and problem-solving while students learn through exploration.',
-    cta: { label: 'Explore student life', to: '/student-life' },
+    cta: { label: 'About us', to: '/about' },
     image:
       'https://static.vasantvalley.org/wp-content/uploads/2026/07/25095940/synapse_2026_4.jpeg',
     imageAlt: 'Students participating in Synapse activities',
@@ -24,28 +24,34 @@ const slides = [
     eyebrow: 'Model United Nations',
     title: '23rd Laissez Faire',
     body: 'Delegates from schools across the country gather to debate, negotiate and develop leadership through meaningful dialogue.',
-    cta: { label: 'View gallery', to: '/campus/gallery' },
+    cta: { label: 'About us', to: '/about' },
     image:
       'https://static.vasantvalley.org/wp-content/uploads/2026/07/20114506/laissez_faire_2026_7-1.jpeg',
     imageAlt: 'Students participating in Laissez Faire 2026',
   },
 ]
+
 export default function Hero() {
   const [active, setActive] = useState(0)
   const timerRef = useRef(null)
 
-  useEffect(() => {
+  const startTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current)
     timerRef.current = setInterval(() => {
       setActive((i) => (i + 1) % slides.length)
-    }, 6000)
+    }, 1500)
+  }
+
+  useEffect(() => {
+    startTimer()
     return () => {
       if (timerRef.current) clearInterval(timerRef.current)
     }
   }, [])
 
   const goTo = (i) => {
-    if (timerRef.current) clearInterval(timerRef.current)
     setActive(i)
+    startTimer()
   }
 
   const slide = slides[active]
@@ -56,9 +62,8 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{ backgroundColor: 'var(--color-ink)' }}
     >
-      {/* Preserving your original responsive height classes */}
       <div className="relative h-130 md:h-160 w-full">
-        {/* Real photography – scales responsively with object-cover */}
+        {/* Real photography */}
         <img
           src={slide.image}
           alt={slide.imageAlt}
@@ -90,7 +95,10 @@ export default function Hero() {
           >
             {slide.body}
           </p>
-          <a href={slide.cta.to} className="btn-primary w-fit mt-8 inline-flex items-center gap-2">
+          <a
+            href={slide.cta.to}
+            className="btn-primary w-fit mt-8 inline-flex items-center gap-2"
+          >
             {slide.cta.label} <ArrowRight size={16} />
           </a>
         </div>
