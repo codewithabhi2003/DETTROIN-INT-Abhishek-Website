@@ -5,7 +5,7 @@ const teasers = [
     label: 'Vision',
     to: '/vision-philosophy',
     image:
-'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1200',
+'https://static.vasantvalley.org/wp-content/uploads/2021/04/image-vasant2.png',
     kicker: '“Excellence in Deed”',
     body: "The school's motto sets the standard for Vasant Valley: individualised attention for each student, a process-focused learning framework, equity of all stakeholders and a commitment to society.",
   },
@@ -13,7 +13,7 @@ const teasers = [
     label: 'A day in school',
     to: '/campus/a-day-in-school',
     image:
-'https://images.pexels.com/photos/8926546/pexels-photo-8926546.jpeg?auto=compress&cs=tinysrgb&w=1200',
+'https://static.vasantvalley.org/wp-content/uploads/2021/04/image-vasant.png',
     imageAlt: 'A visiting dignitary with students on campus',
     kicker: 'Education is preparation for life',
     body: 'Academic and non-academic Learning Experiences are planned around the developmental needs of our students. The entire campus is a classroom, and learning is continuous.',
